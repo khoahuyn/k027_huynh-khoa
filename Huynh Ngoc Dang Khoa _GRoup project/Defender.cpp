@@ -7,22 +7,38 @@ class Defender:public Player
 	string offsideTrap;
 	string areaDefense;
 	public:
-	void settackleAbility(string tackleAbility)
+	void setTackleAbility(string tackleAbility)
+	{
 	    this->tackleAbility=tackleAbility;
-	string gettackleAbility(string tackleAbility)
+	}
+	string getTackleAbility(string tackleAbility)
+	{
 	    return this->tackleAbility;
-	void setdefense1vs1(string defense1vs1)
+	}
+	void setDefense1vs1(string defense1vs1)
+	{
 	    this->defense1vs1=defense1vs1;
-	string getdefense1vs1(string defense1vs1)
+	}
+	string getDefense1vs1(string defense1vs1)
+	{
 	    return this->defense1vs1;
-	void setoffsideTrap(string offsideTrap)
+	}
+	void setOffsideTrap(string offsideTrap)
+	{
 	    this->offsideTrap=offsideTrap;
-	string getoffsideTrap(string offsideTrap)
+	}
+	string getOffsideTrap(string offsideTrap)
+	{
 	    return this->offsideTrap;
-	void setareaDefense(string areaDefense)
+	}
+	void setAreaDefense(string areaDefense)
+	{
 	    this->areaDefense=areaDefense;
-	string getareaDefense(string areaDefense)
-	    return this->areaDefense;   
+	}
+	string getAreaDefense(string areaDefense)
+	{
+	    return this->areaDefense; 
+	}  
 	Defender()
 	{
 	this->tackleAbility="";

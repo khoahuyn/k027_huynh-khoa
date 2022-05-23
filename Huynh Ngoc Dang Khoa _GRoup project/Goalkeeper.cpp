@@ -6,18 +6,30 @@ class Goalkeeper:public Player
 	int numOfKeptCleanSheet;
 	int goalSaveRate;
 	public:
-	void setreflexesAble(string reflexesAble)
+	void setReflexesAble(string reflexesAble)
+	{
 	    this->reflexesAble=reflexesAble;
-	string getreflexesAble(string reflexesAble)
+	}
+	string getReflexesAble(string reflexesAble)
+	{
 	    return this->reflexesAble;
-	void setnumOfKeptCleanSheet(int numOfKeptCleanSheet)
+	}
+	void setNumOfKeptCleanSheet(int numOfKeptCleanSheet)
+	{
 	    this->numOfKeptCleanSheet=numOfKeptCleanSheet;
-	int getnumOfKeptCleanSheet(int numOfKeptCleanSheet)
+	}
+	int getNumOfKeptCleanSheet(int numOfKeptCleanSheet)
+	{
 	    return this->numOfKeptCleanSheet;
-	void setgoalSaveRate(int goalSaveRate)
+	}
+	void setGoalSaveRate(int goalSaveRate)
+	{
 	    this->goalSaveRate=goalSaveRate;
-	int getgoalSaveRate(int goalSaveRate)
+	}
+	int getGoalSaveRate(int goalSaveRate)
+	{
 	    return this->goalSaveRate;
+	}
 	Goalkeeper()
 	{
 	this->reflexesAble="";

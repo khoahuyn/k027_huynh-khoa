@@ -3,35 +3,55 @@ class Midfielder:public Player
 {
 	private:
 	string defenseSupport;
-	string AttackSupport;
+	string attackSupport;
 	string boxToBoxAble;
 	float distanceMove;
 	string cornerKick;
 	public:
-	void setdefenseSupport(string defenseSupport)
+	void setDefenseSupport(string defenseSupport)
+	{
 	    this->defenseSupport=defenseSupport;
-	string getdefenseSupport(string defenseSupport)
+	}
+	string getDefenseSupport(string defenseSupport)
+	{
 	    return this->defenseSupport;
-	void setAttackSupport(string AttackSupport)
-	    this->AttackSupport=AttackSupport;
-	string getAttackSupport(string AttackSupport)
-	    return this->AttackSupport;
-	void setboxToBoxAble(string boxToBoxAble)
+	}
+	void setAttackSupport(string attackSupport)
+	{
+	    this->attackSupport=attackSupport;
+	}
+	string getAttackSupport(string attackSupport)
+	{
+	    return this->attackSupport;
+	}
+	void setBoxToBoxAble(string boxToBoxAble)
+	{
 	    this->boxToBoxAble=boxToBoxAble;
-	string getboxToBoxAble(string boxToBoxAble)
+	}
+	string getBoxToBoxAble(string boxToBoxAble)
+	{
 	    return this->boxToBoxAble;
-	void setdistanceMove(float distanceMove)
+	}
+	void setDistanceMove(float distanceMove)
+	{
 	    this->distanceMove=distanceMove;
-	float getdistanceMove(float distanceMove)
-	    return this->distanceMove;    
-	void setcornerKick(string cornerKick)
+	}
+	float getDistanceMove(float distanceMove)
+	{
+	    return this->distanceMove;  
+	}  
+	void setCornerKick(string cornerKick)
+	{
 	    this->cornerKick=cornerKick;
-	string getcornerKick(string cornerKick)
-	    return this->cornerKick;   
+	}
+	string getCornerKick(string cornerKick)
+	{
+	    return this->cornerKick; 
+	}  
 	Midfielder()
 	{
 	this->defenseSupport="";
-	this->AttackSupport="";
+	this->attackSupport="";
 	this->boxToBoxAble="";
 	this->distanceMove=0;
 	this->cornerKick="";
@@ -42,7 +62,7 @@ class Midfielder:public Player
 		cout<<"Nhap kha nang ho tro phong ngu:";
 		getline(cin,this->defenseSupport);
 		cout<<"Nhap kha nang ho tro tan cong:";
-		getline(cin,this->AttackSupport);
+		getline(cin,this->attackSupport);
 		cout<<"Nhap kha nang len cong ve thu:";
 		getline(cin,this->boxToBoxAble);
 		cout<<"Nhap quang duong di chuyen:";
@@ -53,8 +73,8 @@ class Midfielder:public Player
 	void output()
 	{
 		Player::output();
-		cout<<"defenseSupport:"<<this->defenseSupport<<"  "<<"AttackSupport:"
-		<<this->AttackSupport<<"  "<<"boxToBoxAble:"<<this->boxToBoxAble<<"  "<<
+		cout<<"defenseSupport:"<<this->defenseSupport<<"  "<<"attackSupport:"
+		<<this->attackSupport<<"  "<<"boxToBoxAble:"<<this->boxToBoxAble<<"  "<<
 		"distanceMove:"<<this->distanceMove<<"  "<<"cornerKick:"<<this->cornerKick<<endl;
 	}
 	string mission()
@@ -72,10 +92,10 @@ class Midfielder:public Player
 	long long calculateWage()
 	{
 		long long bonus,wage,salary;
-		if(this->AttackSupport=="good" ||this->defenseSupport=="good" ||this->boxToBoxAble=="good"||this->cornerKick=="good")
+		if(this->attackSupport=="good" ||this->defenseSupport=="good" ||this->boxToBoxAble=="good"||this->cornerKick=="good")
 		{
 			salary=4000000;
-		}else if(this->AttackSupport=="normal" ||this->defenseSupport=="normal" ||this->boxToBoxAble=="normal"||this->cornerKick=="normal")
+		}else if(this->attackSupport=="normal" ||this->defenseSupport=="normal" ||this->boxToBoxAble=="normal"||this->cornerKick=="normal")
 		{
 			salary=3000000;
 		}else
@@ -106,10 +126,10 @@ class Midfielder:public Player
 	}
 	void riskOfTerminateContract()
 	{
-		if(this->AttackSupport=="bad" ||this->defenseSupport=="bad" ||this->boxToBoxAble=="bad"||this->cornerKick=="bad")
+		if(this->attackSupport=="bad" ||this->defenseSupport=="bad" ||this->boxToBoxAble=="bad"||this->cornerKick=="bad")
 		{
 			cout<<"\nViec cham dut hop dong hoan toan co the xay ra\n";
-		}else if(this->AttackSupport=="normal" ||this->defenseSupport=="normal" ||this->boxToBoxAble=="normal"||this->cornerKick=="normal")
+		}else if(this->attackSupport=="normal" ||this->defenseSupport=="normal" ||this->boxToBoxAble=="normal"||this->cornerKick=="normal")
 		{
 			cout<<"\nViec cham dut hop dong kho xay ra\n";
 		}else
