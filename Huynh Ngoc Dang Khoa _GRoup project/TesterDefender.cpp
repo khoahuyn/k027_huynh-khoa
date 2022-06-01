@@ -605,10 +605,12 @@ class Defender:public Player
 //		}
 //	}
 };
-class listDefender
+
+class listDefender:public Defender
 {
 	public:
 		void inputlist(Defender a[100],int n){
+			vector<Defender> v;
 			ofstream fo;
 			fo.open("D:\\test\\danh sach.txt");
 			if(fo.is_open()){
@@ -627,7 +629,7 @@ class listDefender
 int main(){
 	Defender a[100];
 	int n;
-	cout<<"Nhap so luong thu mon:";
+	cout<<"Nhap so luong hau ve:";
 	cin>>n;
 	listDefender li;
 	li.inputlist(a,n);
