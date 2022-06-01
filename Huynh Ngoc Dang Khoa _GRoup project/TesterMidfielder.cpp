@@ -614,9 +614,32 @@ class Midfielder:public Player
 //	}
 };
 
+class listMidfielder:public Midfielder
+{
+	public:
+		void inputlist(Midfielder a[100],int n){
+			vectoc<Midfielder> v;
+			ofstream fo;
+			fo.open("D:\\test\\danh sach.txt");
+			if(fo.is_open()){
+				for(int i=0;i<n;i++){
+					a[i].input();
+					fo<<a[i].getFullName<<"\t||"<<a[i].getAge<<"\t||"<<a[i].getHeight<<"\t||"<<a[i].getWeight<<endl;
+				}
+				fo.close();
+			}else{
+				cout<<"error!!"<<endl;
+			}
+			
+			
+		}
+};
 int main(){
-	Midfielder alaba;
-	alaba.input();
-	alaba.output();
+	Midfielder a[100];
+	int n;
+	cout<<"Nhap so luong tien ve:";
+	cin>>n;
+	listMidfielder li;
+	li.inputlist(a,n);
 	return 0;
 }
