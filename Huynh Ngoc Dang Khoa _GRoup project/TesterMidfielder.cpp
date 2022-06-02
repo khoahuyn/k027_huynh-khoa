@@ -2,6 +2,8 @@
 #include<algorithm>
 #include<vector>
 #include<fstream> 
+#include<string.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 class FootballClub {
@@ -108,8 +110,9 @@ class FootballClub {
 //	virtual bool signingCondition() = 0;
 //	virtual void riskOfTerminateContract() = 0;
 //	virtual void oppRenewContract() = 0;
+//	virtual bool valueBringingLastSeason() = 0;
 };
-class Person:public FootballClub {
+class Person : public FootballClub {
 	private : 
 		int idCardNumber ;
 		string fullName ;
@@ -149,29 +152,43 @@ class Person:public FootballClub {
 			this->salary=0;
 		} 
 		
+		string chuanHoaTen(string name) {
+			string s = "";
+			stringstream st(name);
+			string token;
+			while(st>>token) {
+			s += toupper(token[0]);
+			for(int i=1 ; i<token.length() ; i++) {
+				s += tolower(token[i]);
+			}
+			s += " ";
+			}
+			s.erase(s.length()-1);
+			name = s;
+			return name;
+		}
 		void input () {
-		FootballClub::input() ;
-		cout<<"CardNumber :" ;
-		cin>>this->idCardNumber ;
-		cin.ignore();
-		cout<<"Full name :" ;
-		getline(cin,this->fullName) ;
-		cout<<"Age :" ;
-		cin>>this->age ;
-		cout<<"Salary :" ;
-		cin>>this->salary ;
-		
+			FootballClub::input() ;
+			cout<<"\nCardNumber : " ;
+			cin>>this->idCardNumber;
+			cin.ignore();
+			cout<<"\nFull name : " ;
+			getline(cin,this->fullName) ;
+			this->setFullName(this->chuanHoaTen(this->fullName));
+			cout<<"\nAge : " ;
+			cin>>this->age ;
+			cout<<"\nSalary : " ;
+			cin>>this->salary ;
 		} 
 		void output() {
-		FootballClub::output() ; 
-		cout<<"CardNumber :"<<this->idCardNumber<<"\n";
-		cout<<"Full Name :" <<this->fullName <<"\n" ;
-		cout<<"Age :" <<this->age<<"\n" ;
-		cout<<"Salary :"<<this->salary<<"\n" ;
-		
+			FootballClub::output() ; 
+			cout<<"\nCard Number : "<<this->idCardNumber<<"\n";
+			cout<<"\nFull Name : " <<this->fullName <<"\n" ;
+			cout<<"\nAge : " <<this->age<<"\n" ;
+			cout<<"\nSalary : "<<this->salary<<"\n" ;
 		} 
 	   
-};
+}; 
 class Player:public Person
 {
 	private:
@@ -195,6 +212,7 @@ class Player:public Person
 		string shootBall; // Kha nang sut bong
 		string header; // Kha nang lanh dao
 		string specialGoals; // Ban thang dac biet
+		string position; // vi tri
 	public:
 		void setInjury(string injury){
 			this->injury = injury;
@@ -237,7 +255,15 @@ class Player:public Person
 		}			
 		string getSpecialGoals(){
 			return this->specialGoals;	
-		}			
+		}		
+		void setPosition(string position)
+		{
+			this->position = position;
+		}	
+		string getPosition()
+		{
+			return this->position;
+		}
 
 
 		void setNumberOfShirt(int numberOfShirt){
@@ -348,7 +374,7 @@ class Player:public Person
 		{
 			cout<<"INPUT THE PLAYER'S INFORMATION'"<<endl;
 			Person::input();
-			cout<<"Number of shirt: ";
+			cout<<"Number of shirt(1-25): ";
 			cin>>numberOfShirt;
 			cout<<"Height: ";
 			cin>>height;
@@ -356,7 +382,7 @@ class Player:public Person
 			cin>>weight;
 			cout<<"Speed: ";
 			cin>>speed;
-			cout<<"The average of score: ";
+			cout<<"The average of score(1-10): ";
 			cin>>scoreAverage;
 			cout<<"Injury: ";
 			cin.ignore();
@@ -370,7 +396,7 @@ class Player:public Person
 			cout<<"The duty in Team: ";
 			cin.ignore();
 			getline(cin,dutyInTeam);
-			cout<<"The technique stat: ";
+			cout<<"The technique stat(1-4): ";
 			cin>>techniqueStat;
 			cout<<"The escapation of Pressing: ";
 			cin.ignore();
@@ -391,7 +417,9 @@ class Player:public Person
 			cin>>goalsNumInCareer;
 			cout<<"The special goals: ";
 			cin.ignore();
-			getline(cin,specialGoals);			
+			getline(cin,specialGoals);	
+			cout<<"Position: ";
+			getline(cin,position);		
 		}
 		void output()
 		{
@@ -405,7 +433,7 @@ class Player:public Person
 			cout<<"The ability of shooting Ball: "<<shootBall<<"  "<<"The header: "<<header<<"  "<<endl;
 			cout<<"The number of assistance in Season: "<<assistNumInSeason<<"  "<<"The number of goals in Season: "<<goalsNumInSeason<<endl;
 			cout<<"The number of assistance in Career: "<<assistNumInCareer<<"  "<<"The number of goals in Career: "<<goalsNumInCareer<<endl;
-			cout<<"The special goals: "<<specialGoals<<endl;		
+			cout<<"The special goals: "<<specialGoals<<" "<<"Position: "<<position<<endl;		
 		}
 		void longOrShortTermRest()
 		{
@@ -602,53 +630,75 @@ class Midfielder:public Player
 		}
 	}
 	
-	void valueBringgingLastSeason()
-	{
-		if(this->getEscapePressing()=="good" ||this->boxToBoxAble=="good"||this->getGoalsNumInSeason()>13 ||this->getDutyInTeam()=="good"||this->getNumOfRedCard()==0||this->getSpeed()>80||this->getInjury()=="good") 
-		{
-			cout<<"\nOne of the best players on the team\n";
-			cout<<"\nThe ability to bring titles to the team is high\n";
-		}else
-		{
-			cout<<"\nDoes not bring any value to the team\n";
-		}
-	}
+	
 };
+
+
+
 
 class listMidfielder:public Midfielder
 {
 	public:
 		vector<Midfielder> v;
-		void inputlist(int &n){
-			Midfielder moric;
+		int n;
+		string searchinfo;
+		void inputlist(){
+			cout<<"Enter the Midfielder :";
+			cin>>n;
 			for(int i=0;i<n;i++)
  			{
- 				moric.input();
- 				v.push_back(moric);
+ 				Midfielder dejong;
+ 				dejong.input();
+ 				v.push_back(dejong);
 			 }
 			ofstream fo;
 			fo.open("D:\\test\\danh sach.txt");
 			if(fo.is_open()){
 				for(int i=0;i<v.size();i++){
-					fo<<"Name:"<<v[i].getFullName()<<"\t|Age:"<<v[i].getAge()<<"\t|height:"<<v[i].getHeight()<<"\t|weight:"<<v[i].getWeight()<<endl;
+					fo<<i+1<<"/"<<endl;
+					fo<<"Name: "<<v[i].getFullName()<<endl;
+					fo<<"Age: "<<v[i].getAge()<<endl;
+					fo<<"Height: "<<v[i].getHeight()<<endl;
+					fo<<"Weight: "<<v[i].getWeight()<<endl;
+					fo<<"Position: "<<v[i].getPosition()<<endl;
 				}
 				fo.close();
 			}else{
-				cout<<"error!!"<<endl;
+				cout<<"Error!!"<<endl;
 			}
-			
-			
 		}
+	void search(){
+		ofstream fo;
+			fo.open("D:\\test\\danh sach_new.txt");
+			if(fo.is_open()){
+					cout<<"Enter the searchinfo:";
+					getline(cin,this->searchinfo);
+					for(int i=0;i<v.size();i++){
+					if(this->searchinfo==v[i].getFullName()){
+					fo<<"\t\t======The information you need about Midfielder====="<<endl;	
+					cout<<"\t\t======The information you need about Midfielder====="<<endl;
+					fo<<"Name: "<<v[i].getFullName()<<endl;
+					cout<<"Name: "<<v[i].getFullName()<<endl;
+					fo<<"Age: "<<v[i].getAge()<<endl;
+					cout<<"Age: "<<v[i].getAge()<<endl;
+					fo<<"Height: "<<v[i].getHeight()<<endl;
+					cout<<"Height: "<<v[i].getHeight()<<endl;
+					fo<<"Weight: "<<v[i].getWeight()<<endl;
+					cout<<"Weight: "<<v[i].getWeight()<<endl;
+					fo<<"Position: "<<v[i].getPosition()<<endl;
+					cout<<"Position: "<<v[i].getPosition()<<endl;
+					}
+					}
+				fo.close();
+			}else{
+				cout<<"Error!!"<<endl;
+			}
+	}	
 };
 int main(){
-	Midfielder moric;
-//	moric.input();
-//	moric.output();
-	vector<Midfielder> v;
-	int n;
-	cout<<"Enter the Midfielder :";
-	cin>>n;
 	listMidfielder li;
-	li.inputlist(n);
+	li.inputlist();
+	cout<<endl<<"\t\t=====Enter the name of Midfielder====="<<endl;
+	li.search();
 	return 0;
 }

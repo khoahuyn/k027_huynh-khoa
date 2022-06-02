@@ -118,16 +118,6 @@ class Goalkeeper:public Player
 			cout<<"\nUnable to extend\n";
 		}
 	}
-	void valueBringgingLastSeason()
-	{
-		if(this->getEscapePressing()=="good" ||this->getPassingBall()=="good"||this->getHeader()=="good" ||this->getDutyInTeam()=="good") 
-		{
-			cout<<"\nOne of the best players on the team\n";
-			cout<<"\nThe ability to bring titles to the team is high\n";
-		}else
-		{
-			cout<<"\nDoes not bring any value to the team\n";
-		}
-	}
+	
 };
 

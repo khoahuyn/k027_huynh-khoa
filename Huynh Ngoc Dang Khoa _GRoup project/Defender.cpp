@@ -105,7 +105,7 @@ class Defender:public Player
 		cout<<"\nThe total bonus is:";
 		return wage;
 	}
-	/
+	
 	bool signingCondition()
 	{
 		if(this->getAppearance()<6 ||this->getWeight()>80 ||this->getSpeed()<50 || this->getInjury()=="bad")
@@ -144,16 +144,6 @@ class Defender:public Player
 			cout<<"\nUnable to extend\n";
 		}
 	}
-	void valueBringgingLastSeason()
-	{
-		if(this->getEscapePressing()=="good" ||this->getPassingBall()=="good"||this->getGoalsNumInSeason()>9 ||this->getDutyInTeam()=="good"||this->getNumOfRedCard()==0) 
-		{
-			cout<<"\nOne of the best players on the team\n";
-			cout<<"\nThe ability to bring titles to the team is high\n";
-		}else
-		{
-			cout<<"\nDoes not bring any value to the team\n";
-		}
-	}
+	
 };
 

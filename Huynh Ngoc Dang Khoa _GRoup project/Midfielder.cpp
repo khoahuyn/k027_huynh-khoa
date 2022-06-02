@@ -152,16 +152,6 @@ class Midfielder:public Player
 		}
 	}
 	
-	void valueBringgingLastSeason()
-	{
-		if(this->getEscapePressing()=="good" ||this->boxToBoxAble=="good"||this->getGoalsNumInSeason()>13 ||this->getDutyInTeam()=="good"||this->getNumOfRedCard()==0||this->getSpeed()>80||this->getInjury()=="good") 
-		{
-			cout<<"\nOne of the best players on the team\n";
-			cout<<"\nThe ability to bring titles to the team is high\n";
-		}else
-		{
-			cout<<"\nDoes not bring any value to the team\n";
-		}
-	}
+	
 };
 

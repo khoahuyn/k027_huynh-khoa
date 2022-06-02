@@ -3,39 +3,53 @@ name:Trent Alexander-Arnold
 age:24
 height:1.75m
 weight:64kg
+position:defender
 2/
 name:Joao Cancelo
 age:28
 height:1.82m
 weight:72kg
+position:defender
 3/
 name:Reece James
 age:23
 height:1.82m
 weight:82kg
+position:defender
 4/
 name:Kyle Walker
 age:32
 height:1.78m
 weight:83kg
+position:defender
 5/
 name:Luke Shaw 
 age:27
 height:1.85m
 weight:75kg
+position:defender
 6/
 name:Daniel Carvajal
 age:30
 height:1.73m
 weight:73kg
+position:defender
 7/
 name:Leonardo Spinazzola
 age:29
 height:1.85m
 weight:73kg
+position:defender
 8/
 name:Alphonso Davies 
 age:22
 height:1.81m
 weight:72kg
+position:defender
+9/
+name:Jurrien Timber
+age:21
+height:1.79m
+weight:75kg
+position:defender
 
