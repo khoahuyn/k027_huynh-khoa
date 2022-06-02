@@ -62,13 +62,13 @@ class FootballClub {
 		void setMember(string idMembers){
 			this->idMembers = idMembers;
 		}
-		string getMember(string idMembers){
+		string getMember(){
 			return this->idMembers;
 		}
 		void setcontract(string contractTerm){
 			this->contractTerm = contractTerm;
 		}
-		string getcontract(string contractTerm){
+		string getcontract(){
 			return this->contractTerm;
 		}
 	FootballClub(){
@@ -199,43 +199,43 @@ class Player:public Person
 		void setInjury(string injury){
 			this->injury = injury;
 		}
-		string getInjury(string injury){
+		string getInjury(){
 			return this->injury;
 		}			
 		void setDutyInTeam(string dutyInTeam){
 			this->dutyInTeam = dutyInTeam;
 		}
-		string getDutyInTeam(string dutyInTeam){
+		string getDutyInTeam(){
 			return this->dutyInTeam;
 		}			
 		void setEscapePressing(string escapePressing){
 			this->escapePressing = escapePressing;
 		}
-		string getEscapePressing(string escapePressing){
+		string getEscapePressing(){
 			return this->escapePressing;
 		}			
 		void setPassingBall(string passingBall){
 			this->passingBall = passingBall;
 		}			
-		string getPassingBall(string passingBall){
+		string getPassingBall(){
 			return this->passingBall;
 		}			
 		void setShootBall(string shootBall){
 			this->shootBall = shootBall;
 		}		
-		string getShootBall(string shootBall){
+		string getShootBall(){
 			return this->shootBall;
 		}		
 		void setHeader(string header){
 			this->header = header;
 		}			
-		string getHeader(string header){
+		string getHeader(){
 			return this->header;
 		}			
 		void setSpecialGoals(string specialGoals){
 			this->specialGoals = specialGoals;
 		}			
-		string getSpecialGoals(string specialGoals){
+		string getSpecialGoals(){
 			return this->specialGoals;	
 		}			
 
@@ -243,55 +243,55 @@ class Player:public Person
 		void setNumberOfShirt(int numberOfShirt){
 			this->numberOfShirt = numberOfShirt;
 		}			
-		int getNumberOfShirt(int numberOfShirt){
+		int getNumberOfShirt(){
 			return this->numberOfShirt;
 		}			
 		void setAppearance(int Appearance){
 			this->Appearance = Appearance;
 		}			
-		int getAppearance(int Appearance){
+		int getAppearance(){
 			return this->Appearance;
 		}			
 		void setNumOfYellowCard(int numOfYellowCard){
 			this->numOfYellowCard = numOfYellowCard;
 		}			
-		int getNumOfYellowCard(int numOfYellowCard){
+		int getNumOfYellowCard(){
 			return this->numOfYellowCard;
 		}			
 		void setNumOfRedCard(int numOfRedCard){
 			this->numOfRedCard = numOfRedCard;
 		}			
-		int getNumOfRedCard(int numOfRedCard){
+		int getNumOfRedCard(){
 			return this->numOfRedCard;
 		}			
 		void setTechniqueStat(int techniqueStat){
 			this->techniqueStat = techniqueStat;
 		}					
-		int getTechniqueStat(int techniqueStat){
+		int getTechniqueStat(){
 			return this->techniqueStat;
 		}			
 		void setAssistNumInSeason(int assistNumInSeason){
 			this->assistNumInSeason = assistNumInSeason;
 		}			
-		int getAssistNumInSeason(int assistNumInSeason){
+		int getAssistNumInSeason(){
 			return this->assistNumInSeason;
 		}			
 		void setGoalsNumInSeason(int goalsNumInSeason){
 			this->goalsNumInSeason = goalsNumInSeason;
 		}			
-		int getGoalsNumInSeason(int goalsNumInSeason){
+		int getGoalsNumInSeason(){
 			return this->goalsNumInSeason;
 		}			
 		void setAssistNumInCareer(int assistNumInCareer){
 			this->assistNumInCareer = assistNumInCareer;
 		}			
-		int getAssistNumInCareer(int assistNumInCareer){
+		int getAssistNumInCareer(){
 			return this->assistNumInCareer;
 		}			
 		void setGoalsNumInCareer(int goalsNumInCareer){
 			this->goalsNumInCareer = goalsNumInCareer;
 		}			
-		int getGoalsNumInCareer(int goalsNumInCareer){
+		int getGoalsNumInCareer(){
 			return this->goalsNumInCareer;
 		}			
 		
@@ -299,25 +299,25 @@ class Player:public Person
 		void setHeight(float height){
 			this->height = height;
 		}			
-		float getHeight(float height){
+		float getHeight(){
 			return this->height;
 		}			
 		void setWeight(float weight){
 			this->weight = weight;
 		}			
-		float getWeight(float weight){
+		float getWeight(){
 			return this->weight;
 		}			
 		void setSpeed(float speed){
 			this->speed = speed;
 		}			
-		float getSpeed(float speed){
+		float getSpeed(){
 			return this->speed;
 		}			
 		void setScoreAverage(float scoreAverage){
 			this->scoreAverage = scoreAverage;
 		}			
-		float getScoreAverage(float scoreAverage){
+		float getScoreAverage(){
 			return this->scoreAverage;		
 		}
 																				
@@ -462,7 +462,7 @@ class Midfielder:public Player
 	{
 	    this->defenseSupport=defenseSupport;
 	}
-	string getDefenseSupport(string defenseSupport)
+	string getDefenseSupport()
 	{
 	    return this->defenseSupport;
 	}
@@ -470,7 +470,7 @@ class Midfielder:public Player
 	{
 	    this->attackSupport=attackSupport;
 	}
-	string getAttackSupport(string attackSupport)
+	string getAttackSupport()
 	{
 	    return this->attackSupport;
 	}
@@ -478,7 +478,7 @@ class Midfielder:public Player
 	{
 	    this->boxToBoxAble=boxToBoxAble;
 	}
-	string getBoxToBoxAble(string boxToBoxAble)
+	string getBoxToBoxAble()
 	{
 	    return this->boxToBoxAble;
 	}
@@ -486,7 +486,7 @@ class Midfielder:public Player
 	{
 	    this->distanceMove=distanceMove;
 	}
-	float getDistanceMove(float distanceMove)
+	float getDistanceMove()
 	{
 	    return this->distanceMove;  
 	}  
@@ -494,7 +494,7 @@ class Midfielder:public Player
 	{
 	    this->cornerKick=cornerKick;
 	}
-	string getCornerKick(string cornerKick)
+	string getCornerKick()
 	{
 	    return this->cornerKick; 
 	}  
@@ -509,15 +509,16 @@ class Midfielder:public Player
 	void input()
 	{
 		Player::input();
-		cout<<"Nhap kha nang ho tro phong ngu:";
+		cout<<"Enter the defenseSupport:";
 		getline(cin,this->defenseSupport);
-		cout<<"Nhap kha nang ho tro tan cong:";
+		cout<<"Enter the attackSupport:";
 		getline(cin,this->attackSupport);
-		cout<<"Nhap kha nang len cong ve thu:";
+		cout<<"Enter the boxToBoxAble:";
 		getline(cin,this->boxToBoxAble);
-		cout<<"Nhap quang duong di chuyen:";
+		cout<<"Enter the distanceMove:";
 		cin>>this->distanceMove;
-		cout<<"Nhap kha nang phat goc";
+		cin.ignore();
+		cout<<"Enter the cornerKick:";
 		getline(cin,this->cornerKick);
 	}
 	void output()
@@ -527,104 +528,109 @@ class Midfielder:public Player
 		<<this->attackSupport<<"  "<<"boxToBoxAble:"<<this->boxToBoxAble<<"  "<<
 		"distanceMove:"<<this->distanceMove<<"  "<<"cornerKick:"<<this->cornerKick<<endl;
 	}
-//	string mission()
-//	{
-//		string a="\nNhiem vu chinh la cam trich loi choi\n";
-//		return a;
-//		string b="\nPhai choi chan de ho tro tien dao\n";
-//		return b;
-//		if(this->getTechniqueStat()>90 ||this->getAssistNumInSeason()>20 ||this->getGoalsNumInSeason()>12 ||this->getShootBall=="good")
-//		{
-//			cout<<"\nCo the tham gia kien tao hoac lap cong\n";
-//			cout<<"\nCo the lui ve phong ngu khi can\n";
-//		}
-//	}
-//	long long calculateWage()
-//	{
-//		long long bonus,wage,salary;
-//		if(this->attackSupport=="good" ||this->defenseSupport=="good" ||this->boxToBoxAble=="good"||this->cornerKick=="good")
-//		{
-//			salary=4000000;
-//		}else if(this->attackSupport=="normal" ||this->defenseSupport=="normal" ||this->boxToBoxAble=="normal"||this->cornerKick=="normal")
-//		{
-//			salary=3000000;
-//		}else
-//		{
-//			salary=1800000;
-//		}
-//		
-//		for(int i=1;i<this->distanceMove;i++)
-//		{
-//			bonus+=1000000;
-//		}
-//		wage=bonus+salary;
-//		cout<<"\nTong tien thuong la:";
-//		return wage;
-//	}
-//	
-//	bool signingCondition()
-//	{
-//		if(this->getTechniqueStat()<70 ||this->getShootBall=="bad" || this->getEscapePressing()=="bad"||this->getNumOfRedCard()==3)
-//		{
-//			return false;
-//			cout<<"\nKhong dat yeu cau\n";
-//		}else
-//		{
-//			return true;
-//			cout<<"\nNen ki ket hop dong voi ho\n";
-//		}
-//	}
-//	void riskOfTerminateContract()
-//	{
-//		if(this->attackSupport=="bad" ||this->defenseSupport=="bad" ||this->boxToBoxAble=="bad"||this->cornerKick=="bad")
-//		{
-//			cout<<"\nViec cham dut hop dong hoan toan co the xay ra\n";
-//		}else if(this->attackSupport=="normal" ||this->defenseSupport=="normal" ||this->boxToBoxAble=="normal"||this->cornerKick=="normal")
-//		{
-//			cout<<"\nViec cham dut hop dong kho xay ra\n";
-//		}else
-//		{
-//			cout<<"\nViec cham dut hop dong khong the nao xay ra\n";
-//		}
-//	}
-//	void oppRenewContract()
-//	{
-//		if(this->getSpecialGoals()=="good"||this->cornerKick=="good"||this->getPassingBall()=="good"||this->distanceMove>70)
-//		{
-//			cout<<"\nRat co the se ki hop dong gia han\n";
-//		}else if(this->getSpecialGoals()=="normal"||this->cornerKick=="normal"||this->getPassingBall()=="normal"||this->distanceMove>60)
-//		{
-//			cout<<"\nCo the xem xet gia han\n";
-//		}else
-//		{
-//			cout<<"\nKho co the gia han\n";
-//		}
-//	}
-//	
-//	void valueBringgingLastSeason()
-//	{
-//		if(this->getEscapePressing()=="good" ||this->boxToBoxAble=="good"||this->getGoalsNumInSeason()>13 ||this->setDutyInTeam()=="good"||this->getNumOfRedCard()==0||this->getSpeed()>80||this->getInjury()=="good") 
-//		{
-//			cout<<"\nNam trong top cau thu thi dau hay nhat doi\n";
-//			cout<<"\nKha nang dem lai danh hieu cho doi bong cao\n";
-//		}else
-//		{
-//			cout<<"\nKhong mang lai gia tri gi cho doi bong\n";
-//		}
-//	}
+	string mission()
+	{
+		string a="\nThe main task is to control the gameplay\n";
+		return a;
+		string b="\nMust play well with feet to support strikers\n";
+		return b;
+		if(this->getTechniqueStat()>90 ||this->getAssistNumInSeason()>20 ||this->getGoalsNumInSeason()>12 ||this->getShootBall()=="good")
+		{
+			cout<<"\nCan participate in creating or making merit\n";
+			cout<<"\nCan retreat to defense when needed\n";
+		}
+	}
+	long long calculateWage()
+	{
+		long long bonus,wage,salary;
+		if(this->attackSupport=="good" ||this->defenseSupport=="good" ||this->boxToBoxAble=="good"||this->cornerKick=="good")
+		{
+			salary=4000000;
+		}else if(this->attackSupport=="normal" ||this->defenseSupport=="normal" ||this->boxToBoxAble=="normal"||this->cornerKick=="normal")
+		{
+			salary=3000000;
+		}else
+		{
+			salary=1800000;
+		}
+		
+		for(int i=1;i<this->distanceMove;i++)
+		{
+			bonus+=1000000;
+		}
+		wage=bonus+salary;
+		cout<<"\nThe total bonus is:";
+		return wage;
+	}
+	
+	bool signingCondition()
+	{
+		if(this->getTechniqueStat()<70 ||this->getShootBall()=="bad" || this->getEscapePressing()=="bad"||this->getNumOfRedCard()==3)
+		{
+			return false;
+			cout<<"\nUnsatisfactory\n";
+		}else
+		{
+			return true;
+			cout<<"\nShould sign a contract with them\n";
+		}
+	}
+	void riskOfTerminateContract()
+	{
+		if(this->attackSupport=="bad" ||this->defenseSupport=="bad" ||this->boxToBoxAble=="bad"||this->cornerKick=="bad")
+		{
+			cout<<"\nFull contract termination is possible\n";
+		}else if(this->attackSupport=="normal" ||this->defenseSupport=="normal" ||this->boxToBoxAble=="normal"||this->cornerKick=="normal")
+		{
+			cout<<"\nContract termination is unlikely\n";
+		}else
+		{
+			cout<<"\nTermination of the contract cannot happen\n";
+		}
+	}
+	void oppRenewContract()
+	{
+		if(this->getSpecialGoals()=="good"||this->cornerKick=="good"||this->getPassingBall()=="good"||this->distanceMove>70)
+		{
+			cout<<"\nMost likely will sign a contract extension\n";
+		}else if(this->getSpecialGoals()=="normal"||this->cornerKick=="normal"||this->getPassingBall()=="normal"||this->distanceMove>60)
+		{
+			cout<<"\nExtension may be considered\n";
+		}else
+		{
+			cout<<"\nUnable to extend\n";
+		}
+	}
+	
+	void valueBringgingLastSeason()
+	{
+		if(this->getEscapePressing()=="good" ||this->boxToBoxAble=="good"||this->getGoalsNumInSeason()>13 ||this->getDutyInTeam()=="good"||this->getNumOfRedCard()==0||this->getSpeed()>80||this->getInjury()=="good") 
+		{
+			cout<<"\nOne of the best players on the team\n";
+			cout<<"\nThe ability to bring titles to the team is high\n";
+		}else
+		{
+			cout<<"\nDoes not bring any value to the team\n";
+		}
+	}
 };
 
 class listMidfielder:public Midfielder
 {
 	public:
-		void inputlist(Midfielder a[100],int n){
-			vectoc<Midfielder> v;
+		vector<Midfielder> v;
+		void inputlist(int &n){
+			Midfielder moric;
+			for(int i=0;i<n;i++)
+ 			{
+ 				moric.input();
+ 				v.push_back(moric);
+			 }
 			ofstream fo;
 			fo.open("D:\\test\\danh sach.txt");
 			if(fo.is_open()){
-				for(int i=0;i<n;i++){
-					a[i].input();
-					fo<<a[i].getFullName<<"\t||"<<a[i].getAge<<"\t||"<<a[i].getHeight<<"\t||"<<a[i].getWeight<<endl;
+				for(int i=0;i<v.size();i++){
+					fo<<"Name:"<<v[i].getFullName()<<"\t|Age:"<<v[i].getAge()<<"\t|height:"<<v[i].getHeight()<<"\t|weight:"<<v[i].getWeight()<<endl;
 				}
 				fo.close();
 			}else{
@@ -635,11 +641,14 @@ class listMidfielder:public Midfielder
 		}
 };
 int main(){
-	Midfielder a[100];
+	Midfielder moric;
+//	moric.input();
+//	moric.output();
+	vector<Midfielder> v;
 	int n;
-	cout<<"Nhap so luong tien ve:";
+	cout<<"Enter the Midfielder :";
 	cin>>n;
 	listMidfielder li;
-	li.inputlist(a,n);
+	li.inputlist(n);
 	return 0;
 }

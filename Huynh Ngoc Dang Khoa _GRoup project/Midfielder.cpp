@@ -12,7 +12,7 @@ class Midfielder:public Player
 	{
 	    this->defenseSupport=defenseSupport;
 	}
-	string getDefenseSupport(string defenseSupport)
+	string getDefenseSupport()
 	{
 	    return this->defenseSupport;
 	}
@@ -20,7 +20,7 @@ class Midfielder:public Player
 	{
 	    this->attackSupport=attackSupport;
 	}
-	string getAttackSupport(string attackSupport)
+	string getAttackSupport()
 	{
 	    return this->attackSupport;
 	}
@@ -28,7 +28,7 @@ class Midfielder:public Player
 	{
 	    this->boxToBoxAble=boxToBoxAble;
 	}
-	string getBoxToBoxAble(string boxToBoxAble)
+	string getBoxToBoxAble()
 	{
 	    return this->boxToBoxAble;
 	}
@@ -36,7 +36,7 @@ class Midfielder:public Player
 	{
 	    this->distanceMove=distanceMove;
 	}
-	float getDistanceMove(float distanceMove)
+	float getDistanceMove()
 	{
 	    return this->distanceMove;  
 	}  
@@ -44,7 +44,7 @@ class Midfielder:public Player
 	{
 	    this->cornerKick=cornerKick;
 	}
-	string getCornerKick(string cornerKick)
+	string getCornerKick()
 	{
 	    return this->cornerKick; 
 	}  
@@ -59,15 +59,16 @@ class Midfielder:public Player
 	void input()
 	{
 		Player::input();
-		cout<<"Nhap kha nang ho tro phong ngu:";
+		cout<<"Enter the defenseSupport:";
 		getline(cin,this->defenseSupport);
-		cout<<"Nhap kha nang ho tro tan cong:";
+		cout<<"Enter the attackSupport:";
 		getline(cin,this->attackSupport);
-		cout<<"Nhap kha nang len cong ve thu:";
+		cout<<"Enter the boxToBoxAble:";
 		getline(cin,this->boxToBoxAble);
-		cout<<"Nhap quang duong di chuyen:";
+		cout<<"Enter the distanceMove:";
 		cin>>this->distanceMove;
-		cout<<"Nhap kha nang phat goc";
+		cin.ignore();
+		cout<<"Enter the cornerKick:";
 		getline(cin,this->cornerKick);
 	}
 	void output()
@@ -79,14 +80,14 @@ class Midfielder:public Player
 	}
 	string mission()
 	{
-		string a="\nNhiem vu chinh la cam trich loi choi\n";
+		string a="\nThe main task is to control the gameplay\n";
 		return a;
-		string b="\nPhai choi chan de ho tro tien dao\n";
+		string b="\nMust play well with feet to support strikers\n";
 		return b;
-		if(this->getTechniqueStat()>90 ||this->getAssistNumInSeason()>20 ||this->getGoalsNumInSeason()>12 ||this->getShootBall=="good")
+		if(this->getTechniqueStat()>90 ||this->getAssistNumInSeason()>20 ||this->getGoalsNumInSeason()>12 ||this->getShootBall()=="good")
 		{
-			cout<<"\nCo the tham gia kien tao hoac lap cong\n";
-			cout<<"\nCo the lui ve phong ngu khi can\n";
+			cout<<"\nCan participate in creating or making merit\n";
+			cout<<"\nCan retreat to defense when needed\n";
 		}
 	}
 	long long calculateWage()
@@ -108,58 +109,58 @@ class Midfielder:public Player
 			bonus+=1000000;
 		}
 		wage=bonus+salary;
-		cout<<"\nTong tien thuong la:";
+		cout<<"\nThe total bonus is:";
 		return wage;
 	}
 	
 	bool signingCondition()
 	{
-		if(this->getTechniqueStat()<70 ||this->getShootBall=="bad" || this->getEscapePressing()=="bad"||this->getNumOfRedCard()==3)
+		if(this->getTechniqueStat()<70 ||this->getShootBall()=="bad" || this->getEscapePressing()=="bad"||this->getNumOfRedCard()==3)
 		{
 			return false;
-			cout<<"\nKhong dat yeu cau\n";
+			cout<<"\nUnsatisfactory\n";
 		}else
 		{
 			return true;
-			cout<<"\nNen ki ket hop dong voi ho\n";
+			cout<<"\nShould sign a contract with them\n";
 		}
 	}
 	void riskOfTerminateContract()
 	{
 		if(this->attackSupport=="bad" ||this->defenseSupport=="bad" ||this->boxToBoxAble=="bad"||this->cornerKick=="bad")
 		{
-			cout<<"\nViec cham dut hop dong hoan toan co the xay ra\n";
+			cout<<"\nFull contract termination is possible\n";
 		}else if(this->attackSupport=="normal" ||this->defenseSupport=="normal" ||this->boxToBoxAble=="normal"||this->cornerKick=="normal")
 		{
-			cout<<"\nViec cham dut hop dong kho xay ra\n";
+			cout<<"\nContract termination is unlikely\n";
 		}else
 		{
-			cout<<"\nViec cham dut hop dong khong the nao xay ra\n";
+			cout<<"\nTermination of the contract cannot happen\n";
 		}
 	}
 	void oppRenewContract()
 	{
 		if(this->getSpecialGoals()=="good"||this->cornerKick=="good"||this->getPassingBall()=="good"||this->distanceMove>70)
 		{
-			cout<<"\nRat co the se ki hop dong gia han\n";
+			cout<<"\nMost likely will sign a contract extension\n";
 		}else if(this->getSpecialGoals()=="normal"||this->cornerKick=="normal"||this->getPassingBall()=="normal"||this->distanceMove>60)
 		{
-			cout<<"\nCo the xem xet gia han\n";
+			cout<<"\nExtension may be considered\n";
 		}else
 		{
-			cout<<"\nKho co the gia han\n";
+			cout<<"\nUnable to extend\n";
 		}
 	}
 	
 	void valueBringgingLastSeason()
 	{
-		if(this->getEscapePressing()=="good" ||this->boxToBoxAble=="good"||this->getGoalsNumInSeason()>13 ||this->setDutyInTeam()=="good"||this->getNumOfRedCard()==0||this->getSpeed()>80||this->getInjury()=="good") 
+		if(this->getEscapePressing()=="good" ||this->boxToBoxAble=="good"||this->getGoalsNumInSeason()>13 ||this->getDutyInTeam()=="good"||this->getNumOfRedCard()==0||this->getSpeed()>80||this->getInjury()=="good") 
 		{
-			cout<<"\nNam trong top cau thu thi dau hay nhat doi\n";
-			cout<<"\nKha nang dem lai danh hieu cho doi bong cao\n";
+			cout<<"\nOne of the best players on the team\n";
+			cout<<"\nThe ability to bring titles to the team is high\n";
 		}else
 		{
-			cout<<"\nKhong mang lai gia tri gi cho doi bong\n";
+			cout<<"\nDoes not bring any value to the team\n";
 		}
 	}
 };

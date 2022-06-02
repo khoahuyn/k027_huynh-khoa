@@ -1,0 +1,20 @@
+1/
+name:Thibaut Courtois
+age:30
+height:1.99m
+weight:91kg
+2/
+name:Alisson Becker
+age:30
+height:1.93m
+weight:91kg
+3/
+name:David De Gea 
+age:32
+height:1.92m
+weight:76kg
+4/
+name:Ederson Moraes
+age:29
+height:1.88m
+weight:89kg

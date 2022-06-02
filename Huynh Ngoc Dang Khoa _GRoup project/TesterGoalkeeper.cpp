@@ -448,116 +448,91 @@ class Player:public Person
 			return Num_Of_Expected_Assists;
 		}		
 };
-class Defender:public Player
+
+class Goalkeeper:public Player
 {
 	private:
-	string tackleAbility;
-	string defense1vs1;
-	string offsideTrap;
-	string areaDefense;
+	string reflexesAble;
+	int numOfKeptCleanSheet;
+	int goalSaveRate;
 	public:
-	void setTackleAbility(string tackleAbility)
+	void setReflexesAble(string reflexesAble)
 	{
-	    this->tackleAbility=tackleAbility;
+	    this->reflexesAble=reflexesAble;
 	}
-	string getTackleAbility()
+	string getReflexesAble()
 	{
-	    return this->tackleAbility;
+	    return this->reflexesAble;
 	}
-	void setDefense1vs1(string defense1vs1)
+	void setNumOfKeptCleanSheet(int numOfKeptCleanSheet)
 	{
-	    this->defense1vs1=defense1vs1;
+	    this->numOfKeptCleanSheet=numOfKeptCleanSheet;
 	}
-	string getDefense1vs1()
+	int getNumOfKeptCleanSheet()
 	{
-	    return this->defense1vs1;
+	    return this->numOfKeptCleanSheet;
 	}
-	void setOffsideTrap(string offsideTrap)
+	void setGoalSaveRate(int goalSaveRate)
 	{
-	    this->offsideTrap=offsideTrap;
+	    this->goalSaveRate=goalSaveRate;
 	}
-	string getOffsideTrap()
+	int getGoalSaveRate()
 	{
-	    return this->offsideTrap;
+	    return this->goalSaveRate;
 	}
-	void setAreaDefense(string areaDefense)
+	Goalkeeper()
 	{
-	    this->areaDefense=areaDefense;
-	}
-	string getAreaDefense()
-	{
-	    return this->areaDefense; 
-	}  
-	Defender()
-	{
-	this->tackleAbility="";
-	this->defense1vs1="";
-	this->offsideTrap="";
-	this->areaDefense="";
+	this->reflexesAble="";
+	this->numOfKeptCleanSheet=0;
+	this->goalSaveRate=0;
 	}
 	void input()
 	{
 		Player::input();
-		cout<<"Enter the tackleAbility :";
-		getline(cin,this->tackleAbility);
-		cout<<"Enter the defense1vs1:";
-		getline(cin,this->defense1vs1);
-		cout<<"Enter the offsideTrap :";
-		getline(cin,this->offsideTrap);
-		cout<<"Enter the areaDefense :";
-		getline(cin,this->areaDefense);
+		cout<<"Enter the reflexesAble:";
+		getline(cin,this->reflexesAble);
+		cout<<"Enter the numOfKeptCleanSheet:";
+		cin>>this->numOfKeptCleanSheet;
+		cout<<"Enter the goalSaveRate:";
+		cin>>this->goalSaveRate;
 	}
 	void output()
 	{
 		Player::output();
-		cout<<"tackleAbility:"<<this->tackleAbility<<"  "<<"defense1vs1:"
-		<<this->defense1vs1<<"  "<<"offsideTrap:"<<this->offsideTrap<<" "<<
-		"areaDefense:"<<this->areaDefense<<endl;
+		cout<<"reflexesAble:"<<this->reflexesAble<<"  "<<"numOfKeptCleanSheet:"
+		<<this->numOfKeptCleanSheet<<"  "<<"goalSaveRate:"<<this->goalSaveRate<<endl;
 	}
 	string mission()
 	{
-		string a="\nThe main task is not to let the opponent pass\n";
+		string a="\nThe main task is to keep a clean sheet\n";
 		return a;
-		string b="\nYou should also be good at playing with your feet to help escape pressing\n";
+		string b="\nYou should also be good at playing with your feet to help with ball rotation\n";
 		return b;
-		if(this->getAssistNumInSeason()>10 ||this->getGoalsNumInSeason()>7)
-		{
-			string c="\nShould participate in creating or creating merit\n";
-			return c;
-		}
 	}
 	long long calculateWage()
 	{
 		long long bonus,wage,salary;
-		if(this->areaDefense=="good" ||this->tackleAbility=="good" ||this->offsideTrap=="good"||this->defense1vs1=="good")
+		if(this->goalSaveRate>8 ||this->reflexesAble=="good")
 		{
-			salary=2500000;
-		}else if(this->areaDefense=="normal" ||this->tackleAbility=="normal" ||this->offsideTrap=="normal"||this->defense1vs1=="normal")
+			salary=3000000;
+		}else if(this->goalSaveRate>6 ||this->reflexesAble=="normal")
 		{
-			salary=1200000;
+			salary=1800000;
 		}else
 		{
-			salary=800000;
+			salary=1000000;
 		}
-
-		if(this->getGoalsNumInSeason()>8 ||this->getAssistNumInSeason()>11 ||this->getEscapePressing()=="good"||this->getHeader()=="good")
+		for(int i=1;i<this->numOfKeptCleanSheet;i++)
 		{
-			bonus=500000;
-		}else if(this->getGoalsNumInSeason()>6 ||this->getAssistNumInSeason()>9 ||this->getEscapePressing()=="normal"||this->getHeader()=="normal")
-		{
-			bonus=300000;
-		}else
-		{
-			bonus=150000;
+			bonus+=100000;
 		}
 		wage=bonus+salary;
 		cout<<"\nThe total bonus is:";
 		return wage;
 	}
-	
 	bool signingCondition()
 	{
-		if(this->getAppearance()<6 ||this->getWeight()>80 ||this->getSpeed()<50 || this->getInjury()=="bad")
+		if(this->getAppearance()<5 ||this->getHeight()<1.8 ||this->getHeader()=="bad" ||this->getPassingBall()=="bad")
 		{
 			return false;
 			cout<<"\nUnsatisfactory\n";
@@ -569,10 +544,10 @@ class Defender:public Player
 	}
 	void riskOfTerminateContract()
 	{
-		if(this->areaDefense=="bad" ||this->tackleAbility=="bad" ||this->offsideTrap=="bad"||this->defense1vs1=="bad")
+		if(this->goalSaveRate<5 || this->reflexesAble=="bad" || this->numOfKeptCleanSheet<6)
 		{
 			cout<<"\nFull contract termination is possible\n";
-		}else if(this->areaDefense=="normal" ||this->tackleAbility=="normal" ||this->offsideTrap=="normal"||this->defense1vs1=="normal")
+		}else if(this->goalSaveRate<7 || this->reflexesAble=="normal" || this->numOfKeptCleanSheet<8)
 		{
 			cout<<"\nContract termination is unlikely\n";
 		}else
@@ -582,10 +557,10 @@ class Defender:public Player
 	}
 	void oppRenewContract()
 	{
-		if(this->getTechniqueStat()>85 ||this->getWeight()<72 || this->getEscapePressing()=="good" ||this->getPassingBall()=="good" )
+		if(this->goalSaveRate<9 || this->reflexesAble=="good" || this->numOfKeptCleanSheet<10)
 		{
 			cout<<"\nMost likely will sign a contract extension\n";
-		}else if(this->getTechniqueStat()>75 ||this->getWeight()<77 || this->getEscapePressing()=="normal" ||this->getPassingBall()=="normal")
+		}else if(this->goalSaveRate<7 || this->reflexesAble=="normal" || this->numOfKeptCleanSheet<8)
 		{
 			cout<<"\nExtension may be considered\n";
 		}else
@@ -595,7 +570,7 @@ class Defender:public Player
 	}
 	void valueBringgingLastSeason()
 	{
-		if(this->getEscapePressing()=="good" ||this->getPassingBall()=="good"||this->getGoalsNumInSeason()>9 ||this->getDutyInTeam()=="good"||this->getNumOfRedCard()==0) 
+		if(this->getEscapePressing()=="good" ||this->getPassingBall()=="good"||this->getHeader()=="good" ||this->getDutyInTeam()=="good") 
 		{
 			cout<<"\nOne of the best players on the team\n";
 			cout<<"\nThe ability to bring titles to the team is high\n";
@@ -607,16 +582,16 @@ class Defender:public Player
 };
 
 
-class listDefender:public Defender
+class listGoalkeeper:public Goalkeeper
 {
 	public:
-		vector<Defender> v;
+		vector<Goalkeeper> v;
 		void inputlist(int &n){
-			Defender arnold;
+			Goalkeeper degea;
 			for(int i=0;i<n;i++)
  			{
- 				arnold.input();
- 				v.push_back(arnold);
+ 				degea.input();
+ 				v.push_back(degea);
 			 }
 			ofstream fo;
 			fo.open("D:\\test\\danh sach.txt");
@@ -633,14 +608,14 @@ class listDefender:public Defender
 		}
 };
 int main(){
-	Defender arnold;
-//	arnold.input();
-//	arnold.output();
-	vector<Defender> v;
+	Goalkeeper degea;
+//	degea.input();
+//	degea.output();
+	vector<Goalkeeper> v;
 	int n;
-	cout<<"Enter the Defender :";
+	cout<<"Enter the Goalkeeper:";
 	cin>>n;
-	listDefender li;
+	listGoalkeeper li;
 	li.inputlist(n);
 	return 0;
 }

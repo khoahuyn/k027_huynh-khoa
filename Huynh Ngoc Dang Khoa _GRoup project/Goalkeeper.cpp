@@ -10,7 +10,7 @@ class Goalkeeper:public Player
 	{
 	    this->reflexesAble=reflexesAble;
 	}
-	string getReflexesAble(string reflexesAble)
+	string getReflexesAble()
 	{
 	    return this->reflexesAble;
 	}
@@ -18,7 +18,7 @@ class Goalkeeper:public Player
 	{
 	    this->numOfKeptCleanSheet=numOfKeptCleanSheet;
 	}
-	int getNumOfKeptCleanSheet(int numOfKeptCleanSheet)
+	int getNumOfKeptCleanSheet()
 	{
 	    return this->numOfKeptCleanSheet;
 	}
@@ -26,7 +26,7 @@ class Goalkeeper:public Player
 	{
 	    this->goalSaveRate=goalSaveRate;
 	}
-	int getGoalSaveRate(int goalSaveRate)
+	int getGoalSaveRate()
 	{
 	    return this->goalSaveRate;
 	}
@@ -39,11 +39,11 @@ class Goalkeeper:public Player
 	void input()
 	{
 		Player::input();
-		cout<<"Nhap kha nang phan xa:";
+		cout<<"Enter the reflexesAble:";
 		getline(cin,this->reflexesAble);
-		cout<<"Nhap so tran giu sach luoi:";
+		cout<<"Enter the numOfKeptCleanSheet:";
 		cin>>this->numOfKeptCleanSheet;
-		cout<<"Nhap ti le cuu thua:";
+		cout<<"Enter the goalSaveRate:";
 		cin>>this->goalSaveRate;
 	}
 	void output()
@@ -54,9 +54,9 @@ class Goalkeeper:public Player
 	}
 	string mission()
 	{
-		string a="\nNhiem vu chinh la giu sach luoi\n";
+		string a="\nThe main task is to keep a clean sheet\n";
 		return a;
-		string b="\nCung nen  gioi choi chan de ho tro luan chuyen bong\n";
+		string b="\nYou should also be good at playing with your feet to help with ball rotation\n";
 		return b;
 	}
 	long long calculateWage()
@@ -77,7 +77,7 @@ class Goalkeeper:public Player
 			bonus+=100000;
 		}
 		wage=bonus+salary;
-		cout<<"\nTong tien thuong la:";
+		cout<<"\nThe total bonus is:";
 		return wage;
 	}
 	bool signingCondition()
@@ -85,48 +85,48 @@ class Goalkeeper:public Player
 		if(this->getAppearance()<5 ||this->getHeight()<1.8 ||this->getHeader()=="bad" ||this->getPassingBall()=="bad")
 		{
 			return false;
-			cout<<"\nKhong dat yeu cau\n";
+			cout<<"\nUnsatisfactory\n";
 		}else
 		{
 			return true;
-			cout<<"\nNen ki hop dong voi ho\n";
+			cout<<"\nShould sign a contract with them\n";
 		}
 	}
 	void riskOfTerminateContract()
 	{
 		if(this->goalSaveRate<5 || this->reflexesAble=="bad" || this->numOfKeptCleanSheet<6)
 		{
-			cout<<"\nViec cham dut hop dong hoan toan co the xay ra\n";
+			cout<<"\nFull contract termination is possible\n";
 		}else if(this->goalSaveRate<7 || this->reflexesAble=="normal" || this->numOfKeptCleanSheet<8)
 		{
-			cout<<"\nViec cham dut hop dong kho xay ra\n";
+			cout<<"\nContract termination is unlikely\n";
 		}else
 		{
-			cout<<"\nViec cham dut hop dong khong the nao xay ra\n";
+			cout<<"\nTermination of the contract cannot happen\n";
 		}
 	}
 	void oppRenewContract()
 	{
 		if(this->goalSaveRate<9 || this->reflexesAble=="good" || this->numOfKeptCleanSheet<10)
 		{
-			cout<<"\nRat co the se ki hop dong gia han\n";
+			cout<<"\nMost likely will sign a contract extension\n";
 		}else if(this->goalSaveRate<7 || this->reflexesAble=="normal" || this->numOfKeptCleanSheet<8)
 		{
-			cout<<"\nCo the xem xet gia han\n";
+			cout<<"\nExtension may be considered\n";
 		}else
 		{
-			cout<<"\nKho co the gia han\n";
+			cout<<"\nUnable to extend\n";
 		}
 	}
 	void valueBringgingLastSeason()
 	{
-		if(this->getEscapePressing()=="good" ||this->getPassingBall()=="good"||this->getHeader()=="good" ||this->setDutyInTeam()=="good") 
+		if(this->getEscapePressing()=="good" ||this->getPassingBall()=="good"||this->getHeader()=="good" ||this->getDutyInTeam()=="good") 
 		{
-			cout<<"\nNam trong top cau thu thi dau hay nhat doi\n";
-			cout<<"\nKha nang dem lai danh hieu cho doi bong cao\n";
+			cout<<"\nOne of the best players on the team\n";
+			cout<<"\nThe ability to bring titles to the team is high\n";
 		}else
 		{
-			cout<<"\nKhong mang lai gia tri gi cho doi bong\n";
+			cout<<"\nDoes not bring any value to the team\n";
 		}
 	}
 };
