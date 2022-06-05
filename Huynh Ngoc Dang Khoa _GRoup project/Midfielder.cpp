@@ -4,7 +4,6 @@ class Midfielder:public Player
 	private:
 	string defenseSupport;
 	string attackSupport;
-	string boxToBoxAble;
 	float distanceMove;
 	string cornerKick;
 	public:
@@ -24,14 +23,6 @@ class Midfielder:public Player
 	{
 	    return this->attackSupport;
 	}
-	void setBoxToBoxAble(string boxToBoxAble)
-	{
-	    this->boxToBoxAble=boxToBoxAble;
-	}
-	string getBoxToBoxAble()
-	{
-	    return this->boxToBoxAble;
-	}
 	void setDistanceMove(float distanceMove)
 	{
 	    this->distanceMove=distanceMove;
@@ -50,11 +41,14 @@ class Midfielder:public Player
 	}  
 	Midfielder()
 	{
-	this->defenseSupport="";
-	this->attackSupport="";
-	this->boxToBoxAble="";
-	this->distanceMove=0;
-	this->cornerKick="";
+		
+	} 
+	Midfielder(string idMembers,string contractTerm,int idCardNumber,string fullName,int age,long long salary,int numberOfShirt,int Appearance,int numOfYellowCard,int numOfRedCard,int techniqueStat,int assistNumInSeason,int goalsNumInSeason,float height,float weight,string injury,string position,string escapeOffside,	string penaltyAble,	string combiWithOther,	int numOfGodenGoals):Player(idMembers,contractTerm,idCardNumber,fullName,age,salary,numberOfShirt,Appearance,numOfYellowCard,numOfRedCard,techniqueStat,assistNumInSeason,goalsNumInSeason,height,weight,injury,position) {
+		this->defenseSupport=defenseSupport;
+		this->attackSupport=attackSupport;
+		this->distanceMove=distanceMove ;
+		this->cornerKick=cornerKick ;
+
 	}
 	void input()
 	{
@@ -63,8 +57,6 @@ class Midfielder:public Player
 		getline(cin,this->defenseSupport);
 		cout<<"Enter the attackSupport:";
 		getline(cin,this->attackSupport);
-		cout<<"Enter the boxToBoxAble:";
-		getline(cin,this->boxToBoxAble);
 		cout<<"Enter the distanceMove:";
 		cin>>this->distanceMove;
 		cin.ignore();
@@ -75,8 +67,7 @@ class Midfielder:public Player
 	{
 		Player::output();
 		cout<<"defenseSupport:"<<this->defenseSupport<<"  "<<"attackSupport:"
-		<<this->attackSupport<<"  "<<"boxToBoxAble:"<<this->boxToBoxAble<<"  "<<
-		"distanceMove:"<<this->distanceMove<<"  "<<"cornerKick:"<<this->cornerKick<<endl;
+		<<this->attackSupport<<"  "<<"distanceMove:"<<this->distanceMove<<"  "<<"cornerKick:"<<this->cornerKick<<endl;
 	}
 	string mission()
 	{
@@ -84,7 +75,7 @@ class Midfielder:public Player
 		return a;
 		string b="\nMust play well with feet to support strikers\n";
 		return b;
-		if(this->getTechniqueStat()>90 ||this->getAssistNumInSeason()>20 ||this->getGoalsNumInSeason()>12 ||this->getShootBall()=="good")
+		if(this->getTechniqueStat()>90 ||this->getAssistNumInSeason()>20 ||this->getGoalsNumInSeason()>12 )
 		{
 			cout<<"\nCan participate in creating or making merit\n";
 			cout<<"\nCan retreat to defense when needed\n";
@@ -93,10 +84,10 @@ class Midfielder:public Player
 	long long calculateWage()
 	{
 		long long bonus,wage,salary;
-		if(this->attackSupport=="good" ||this->defenseSupport=="good" ||this->boxToBoxAble=="good"||this->cornerKick=="good")
+		if(this->attackSupport=="good" ||this->defenseSupport=="good" ||this->cornerKick=="good")
 		{
 			salary=4000000;
-		}else if(this->attackSupport=="normal" ||this->defenseSupport=="normal" ||this->boxToBoxAble=="normal"||this->cornerKick=="normal")
+		}else if(this->attackSupport=="normal" ||this->defenseSupport=="normal" ||this->cornerKick=="normal")
 		{
 			salary=3000000;
 		}else
@@ -115,7 +106,7 @@ class Midfielder:public Player
 	
 	bool signingCondition()
 	{
-		if(this->getTechniqueStat()<70 ||this->getShootBall()=="bad" || this->getEscapePressing()=="bad"||this->getNumOfRedCard()==3)
+		if(this->getTechniqueStat()<70 ||this->getNumOfRedCard()==3)
 		{
 			return false;
 			cout<<"\nUnsatisfactory\n";
@@ -127,10 +118,10 @@ class Midfielder:public Player
 	}
 	void riskOfTerminateContract()
 	{
-		if(this->attackSupport=="bad" ||this->defenseSupport=="bad" ||this->boxToBoxAble=="bad"||this->cornerKick=="bad")
+		if(this->attackSupport=="bad" ||this->defenseSupport=="bad" ||this->cornerKick=="bad")
 		{
 			cout<<"\nFull contract termination is possible\n";
-		}else if(this->attackSupport=="normal" ||this->defenseSupport=="normal" ||this->boxToBoxAble=="normal"||this->cornerKick=="normal")
+		}else if(this->attackSupport=="normal" ||this->defenseSupport=="normal" ||this->cornerKick=="normal")
 		{
 			cout<<"\nContract termination is unlikely\n";
 		}else
@@ -140,10 +131,10 @@ class Midfielder:public Player
 	}
 	void oppRenewContract()
 	{
-		if(this->getSpecialGoals()=="good"||this->cornerKick=="good"||this->getPassingBall()=="good"||this->distanceMove>70)
+		if(this->cornerKick=="good"||this->distanceMove>70)
 		{
 			cout<<"\nMost likely will sign a contract extension\n";
-		}else if(this->getSpecialGoals()=="normal"||this->cornerKick=="normal"||this->getPassingBall()=="normal"||this->distanceMove>60)
+		}else if(this->cornerKick=="normal"||this->distanceMove>60)
 		{
 			cout<<"\nExtension may be considered\n";
 		}else

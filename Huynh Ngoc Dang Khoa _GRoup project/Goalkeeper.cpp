@@ -32,9 +32,12 @@ class Goalkeeper:public Player
 	}
 	Goalkeeper()
 	{
-	this->reflexesAble="";
-	this->numOfKeptCleanSheet=0;
-	this->goalSaveRate=0;
+		
+	} 
+	Goalkeeper(string idMembers,string contractTerm,int idCardNumber,string fullName,int age,long long salary,int numberOfShirt,int Appearance,int numOfYellowCard,int numOfRedCard,int techniqueStat,int assistNumInSeason,int goalsNumInSeason,float height,float weight,string injury,string position,string escapeOffside,	string penaltyAble,	string combiWithOther,	int numOfGodenGoals):Player(idMembers,contractTerm,idCardNumber,fullName,age,salary,numberOfShirt,Appearance,numOfYellowCard,numOfRedCard,techniqueStat,assistNumInSeason,goalsNumInSeason,height,weight,injury,position) {
+		this->reflexesAble=reflexesAble;
+		this->numOfKeptCleanSheet=numOfKeptCleanSheet;
+		this->goalSaveRate=goalSaveRate ;
 	}
 	void input()
 	{
@@ -82,7 +85,7 @@ class Goalkeeper:public Player
 	}
 	bool signingCondition()
 	{
-		if(this->getAppearance()<5 ||this->getHeight()<1.8 ||this->getHeader()=="bad" ||this->getPassingBall()=="bad")
+		if(this->getAppearance()<5 ||this->getHeight()<1.8 )
 		{
 			return false;
 			cout<<"\nUnsatisfactory\n";

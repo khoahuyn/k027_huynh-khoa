@@ -5,7 +5,6 @@ class Defender:public Player
 	string tackleAbility;
 	string defense1vs1;
 	string offsideTrap;
-	string areaDefense;
 	public:
 	void setTackleAbility(string tackleAbility)
 	{
@@ -31,20 +30,14 @@ class Defender:public Player
 	{
 	    return this->offsideTrap;
 	}
-	void setAreaDefense(string areaDefense)
-	{
-	    this->areaDefense=areaDefense;
-	}
-	string getAreaDefense()
-	{
-	    return this->areaDefense; 
-	}  
 	Defender()
 	{
-	this->tackleAbility="";
-	this->defense1vs1="";
-	this->offsideTrap="";
-	this->areaDefense="";
+		
+	} 
+	Defender(string idMembers,string contractTerm,int idCardNumber,string fullName,int age,long long salary,int numberOfShirt,int Appearance,int numOfYellowCard,int numOfRedCard,int techniqueStat,int assistNumInSeason,int goalsNumInSeason,float height,float weight,string injury,string position,string escapeOffside,	string penaltyAble,	string combiWithOther,	int numOfGodenGoals):Player(idMembers,contractTerm,idCardNumber,fullName,age,salary,numberOfShirt,Appearance,numOfYellowCard,numOfRedCard,techniqueStat,assistNumInSeason,goalsNumInSeason,height,weight,injury,position) {
+		this->tackleAbility=tackleAbility;
+		this->defense1vs1=defense1vs1;
+		this->offsideTrap=this->offsideTrap ;
 	}
 	void input()
 	{
@@ -55,15 +48,12 @@ class Defender:public Player
 		getline(cin,this->defense1vs1);
 		cout<<"Enter the offsideTrap :";
 		getline(cin,this->offsideTrap);
-		cout<<"Enter the areaDefense :";
-		getline(cin,this->areaDefense);
 	}
 	void output()
 	{
 		Player::output();
 		cout<<"tackleAbility:"<<this->tackleAbility<<"  "<<"defense1vs1:"
-		<<this->defense1vs1<<"  "<<"offsideTrap:"<<this->offsideTrap<<" "<<
-		"areaDefense:"<<this->areaDefense<<endl;
+		<<this->defense1vs1<<"  "<<"offsideTrap:"<<this->offsideTrap<<endl;
 	}
 	string mission()
 	{
@@ -80,10 +70,10 @@ class Defender:public Player
 	long long calculateWage()
 	{
 		long long bonus,wage,salary;
-		if(this->areaDefense=="good" ||this->tackleAbility=="good" ||this->offsideTrap=="good"||this->defense1vs1=="good")
+		if(this->tackleAbility=="good" ||this->offsideTrap=="good"||this->defense1vs1=="good")
 		{
 			salary=2500000;
-		}else if(this->areaDefense=="normal" ||this->tackleAbility=="normal" ||this->offsideTrap=="normal"||this->defense1vs1=="normal")
+		}else if(this->tackleAbility=="normal" ||this->offsideTrap=="normal"||this->defense1vs1=="normal")
 		{
 			salary=1200000;
 		}else
@@ -91,10 +81,10 @@ class Defender:public Player
 			salary=800000;
 		}
 
-		if(this->getGoalsNumInSeason()>8 ||this->getAssistNumInSeason()>11 ||this->getEscapePressing()=="good"||this->getHeader()=="good")
+		if(this->getGoalsNumInSeason()>8 ||this->getAssistNumInSeason()>11 )
 		{
 			bonus=500000;
-		}else if(this->getGoalsNumInSeason()>6 ||this->getAssistNumInSeason()>9 ||this->getEscapePressing()=="normal"||this->getHeader()=="normal")
+		}else if(this->getGoalsNumInSeason()>6 ||this->getAssistNumInSeason()>9 )
 		{
 			bonus=300000;
 		}else
@@ -108,7 +98,7 @@ class Defender:public Player
 	
 	bool signingCondition()
 	{
-		if(this->getAppearance()<6 ||this->getWeight()>80 ||this->getSpeed()<50 || this->getInjury()=="bad")
+		if(this->getAppearance()<6 ||this->getWeight()>80  || this->getInjury()=="bad")
 		{
 			return false;
 			cout<<"\nUnsatisfactory\n";
@@ -120,10 +110,10 @@ class Defender:public Player
 	}
 	void riskOfTerminateContract()
 	{
-		if(this->areaDefense=="bad" ||this->tackleAbility=="bad" ||this->offsideTrap=="bad"||this->defense1vs1=="bad")
+		if(this->tackleAbility=="bad" ||this->offsideTrap=="bad"||this->defense1vs1=="bad")
 		{
 			cout<<"\nFull contract termination is possible\n";
-		}else if(this->areaDefense=="normal" ||this->tackleAbility=="normal" ||this->offsideTrap=="normal"||this->defense1vs1=="normal")
+		}else if(this->tackleAbility=="normal" ||this->offsideTrap=="normal"||this->defense1vs1=="normal")
 		{
 			cout<<"\nContract termination is unlikely\n";
 		}else
@@ -133,10 +123,10 @@ class Defender:public Player
 	}
 	void oppRenewContract()
 	{
-		if(this->getTechniqueStat()>85 ||this->getWeight()<72 || this->getEscapePressing()=="good" ||this->getPassingBall()=="good" )
+		if(this->getTechniqueStat()>85 ||this->getWeight()<72  )
 		{
 			cout<<"\nMost likely will sign a contract extension\n";
-		}else if(this->getTechniqueStat()>75 ||this->getWeight()<77 || this->getEscapePressing()=="normal" ||this->getPassingBall()=="normal")
+		}else if(this->getTechniqueStat()>75 ||this->getWeight()<77 )
 		{
 			cout<<"\nExtension may be considered\n";
 		}else

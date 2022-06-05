@@ -1,9 +1,10 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
-#include<fstream> 
+#include<fstream>
 #include<string.h>
 #include<bits/stdc++.h>
+#include<conio.h>
 using namespace std;
 
 class FootballClub {
@@ -12,55 +13,56 @@ class FootballClub {
 		string contractTerm;
 	public:
 		bool checkDate(int day, int month, int year) {
-		switch (month) {
-			case 1 :
-			case 3:
-			case 5 :
-			case 7 :
-			case 8 :
-			case 10 :
-			case 12 :
-					if(day<1 || day > 31) {
+			switch (month) {
+				case 1 :
+				case 3:
+				case 5 :
+				case 7 :
+				case 8 :
+				case 10 :
+				case 12 :
+						if(day<1 || day > 31) {
+							return false;
+						}
+						break;
+				case 4 :
+				case 6 :
+				case 9 :
+				case 11 :
+					if(day < 1 || day > 30) {
 						return false;
 					}
 					break;
-			case 4 :
-			case 6 :
-			case 9 :
-			case 11 :
-				if(day < 1 || day > 30) {
-					return false;
-				}
-				break;
-			case 2 :
-				if (year % 4 == 0) {
-  					if (year % 100 == 0) {
-   						 if (year % 400 == 0) {
+				case 2 :
+					if (year % 4 == 0) {
+	  					if (year % 100 == 0) {
+	   						 if (year % 400 == 0) {
+								if(day < 1 || day > 29) {
+									return false;
+								}
+						}else{
+							if(day < 1 || day > 28) {
+									return false;
+						}}
+					}else {
 							if(day < 1 || day > 29) {
-								return false;
-							}
-					}else{
-						if(day < 1 || day > 28) {
-								return false;
+									return false;
+								}
+					}}else{
+							if(day < 1 || day > 28) {
+									return false;
 					}}
-				}else {
-						if(day < 1 || day > 29) {
-								return false;
-							}
-				}}else{
-						if(day < 1 || day > 28) {
-								return false;
-				}}
-					
-				break;
-			default :
+						
+					break;
+				default :
+					return false;
+			}
+			if(year <= 2022) {
 				return false;
+			} 
+			return true;
 		}
-		if(year <= 2022) {
-			return false;
-		} 
-		return true;
-		}
+		
 		void setMember(string idMembers){
 			this->idMembers = idMembers;
 		}
@@ -74,18 +76,22 @@ class FootballClub {
 			return this->contractTerm;
 		}
 	FootballClub(){
-		this->idMembers = " ";
-		this->contractTerm = " ";
 	}
-	void input(){
-		cout<<"Enter the ID.Members: ";
+	
+	FootballClub(string idMembers , string contractTerm) {
+		this->idMembers = idMembers;
+		this->contractTerm = contractTerm;
+	}
+	
+	virtual void input(){
+		cout<<"\n\nWe need the ID for this person : ";
 		cin>>this->idMembers;
 		for(int i=0;i<=10;i++){
 			if(this->idMembers[i]>=97&&this->idMembers[i]<=122)
 				this->idMembers[i]-=32;
 		}
 		cin.ignore();
-		cout<<"Enter the ContractTerm(Format DD/MM/YYYY): \n\n";
+		cout<<"\nHow long do you want your contract to last?(Format DD/MM/YYYY): \n\n";
 		int day,month,year;
 		do {
 			cout << "Day : ";
@@ -95,24 +101,26 @@ class FootballClub {
 			cout << "Year : ";
 			cin >> year;
 		}while(checkDate(day,month,year)==false);
+		cout<<"\n";
 		string sday,smonth,syear;
 		sday = to_string(day);
 		smonth = to_string(month);
 		syear = to_string(year);
 		this->contractTerm = sday+'/'+smonth+'/'+syear;
 	}
-	void output(){
-		cout<<"*ID of Members: "<<this->idMembers<<endl;
-		cout<<"*Contract Term: "<<this->contractTerm<<endl;
+	virtual void output(){
+		cout<<"ID of Members: "<<this->idMembers<<endl<<endl;
+		cout<<"Contract Term: "<<this->contractTerm<<endl;
 	}
-//	virtual string mission() = 0;
-//	virtual long long calculateWage() = 0;
-//	virtual bool signingCondition() = 0;
-//	virtual void riskOfTerminateContract() = 0;
-//	virtual void oppRenewContract() = 0;
-//	virtual bool valueBringingLastSeason() = 0;
+	virtual string mission() = 0;
+	virtual bool signingCondition() = 0;
+	virtual void oppRenewContract() = 0;
+	long long calculateWage() {
+	}
+	void riskOfTerminateContract() {
+	}
 };
-class Person : public FootballClub {
+class Person:public FootballClub  {
 	private : 
 		int idCardNumber ;
 		string fullName ;
@@ -146,49 +154,50 @@ class Person : public FootballClub {
 		} 
 
 		Person() {
-			this->idCardNumber=0;
-			this->fullName="" ;
-			this->age=0;
-			this->salary=0;
-		} 
-		
-		string chuanHoaTen(string name) {
-			string s = "";
-			stringstream st(name);
-			string token;
-			while(st>>token) {
-			s += toupper(token[0]);
-			for(int i=1 ; i<token.length() ; i++) {
-				s += tolower(token[i]);
-			}
-			s += " ";
-			}
-			s.erase(s.length()-1);
-			name = s;
-			return name;
+			
 		}
+		
+		Person(string idMembers , string contractTerm , int idCardNumber , string fullName , int age , long long salary) : FootballClub(idMembers,contractTerm) {
+			this->idCardNumber = idCardNumber;
+			this->fullName = fullName;
+			this->age = age;
+			this->salary = salary;
+		}
+		
 		void input () {
-			FootballClub::input() ;
-			cout<<"\nCardNumber : " ;
-			cin>>this->idCardNumber;
-			cin.ignore();
-			cout<<"\nFull name : " ;
-			getline(cin,this->fullName) ;
-			this->setFullName(this->chuanHoaTen(this->fullName));
-			cout<<"\nAge : " ;
-			cin>>this->age ;
-			cout<<"\nSalary : " ;
-			cin>>this->salary ;
+		FootballClub::input() ;
+		cout<<"\nIdentity card number : " ;
+		cin>>this->idCardNumber ;
+		cin.ignore();
+		cout << "\nFull name : ";
+		getline(cin,this->fullName);
+		string s = "";
+		stringstream st(fullName);
+		string token;
+		while(st>>token) {
+		s += toupper(token[0]);
+		for(int i=1 ; i<token.length() ; i++) {
+	   		s += tolower(token[i]);
+		}
+			s += " ";
+		}
+		s.erase(s.length()-1);
+		fullName=s ;
+		cout<<"\nAge :" ;
+		cin>>this->age ;
+		cout<<"\nSalary :" ;
+		cin>>this->salary ;
+		
 		} 
 		void output() {
-			FootballClub::output() ; 
-			cout<<"\nCard Number : "<<this->idCardNumber<<"\n";
-			cout<<"\nFull Name : " <<this->fullName <<"\n" ;
-			cout<<"\nAge : " <<this->age<<"\n" ;
-			cout<<"\nSalary : "<<this->salary<<"\n" ;
+		FootballClub::output() ; 
+		cout<<"\nCardNumber :"<<this->idCardNumber<<"\n\n";
+		cout<<"Full Name :" <<this->fullName<<"\n\n" ;
+		cout<<"Age :" <<this->age<<"\n\n" ;
+		cout<<"Salary :"<<this->salary<<"\n\n" ;
 		} 
 	   
-}; 
+};
 class Player:public Person
 {
 	private:
@@ -199,19 +208,9 @@ class Player:public Person
 		int techniqueStat; // Chi so ki thuat
 		int assistNumInSeason; // So luong kien tao trong 1 mua
 		int goalsNumInSeason; // SO luong ban thang trong 1 mua
-		int assistNumInCareer; // So luong kien tao trong su nghiep cau thu
-		int goalsNumInCareer; // So luong ban thang trong su nghiep cau thu
 		float height; // Chieu cao
 		float weight; // Can nang
-		float speed; // Toc do
-		float scoreAverage; // Trung binh so ban thang
 		string injury; // Loai chan thuong
-		string dutyInTeam; // Vai tro trong doi bong
-		string escapePressing; // Kha nang thoat Pressing
-		string  passingBall; // Kha nang chuyen bong
-		string shootBall; // Kha nang sut bong
-		string header; // Kha nang lanh dao
-		string specialGoals; // Ban thang dac biet
 		string position; // vi tri
 	public:
 		void setInjury(string injury){
@@ -219,43 +218,7 @@ class Player:public Person
 		}
 		string getInjury(){
 			return this->injury;
-		}			
-		void setDutyInTeam(string dutyInTeam){
-			this->dutyInTeam = dutyInTeam;
-		}
-		string getDutyInTeam(){
-			return this->dutyInTeam;
-		}			
-		void setEscapePressing(string escapePressing){
-			this->escapePressing = escapePressing;
-		}
-		string getEscapePressing(){
-			return this->escapePressing;
-		}			
-		void setPassingBall(string passingBall){
-			this->passingBall = passingBall;
-		}			
-		string getPassingBall(){
-			return this->passingBall;
-		}			
-		void setShootBall(string shootBall){
-			this->shootBall = shootBall;
-		}		
-		string getShootBall(){
-			return this->shootBall;
-		}		
-		void setHeader(string header){
-			this->header = header;
-		}			
-		string getHeader(){
-			return this->header;
-		}			
-		void setSpecialGoals(string specialGoals){
-			this->specialGoals = specialGoals;
-		}			
-		string getSpecialGoals(){
-			return this->specialGoals;	
-		}		
+		}					
 		void setPosition(string position)
 		{
 			this->position = position;
@@ -264,8 +227,6 @@ class Player:public Person
 		{
 			return this->position;
 		}
-
-
 		void setNumberOfShirt(int numberOfShirt){
 			this->numberOfShirt = numberOfShirt;
 		}			
@@ -307,21 +268,7 @@ class Player:public Person
 		}			
 		int getGoalsNumInSeason(){
 			return this->goalsNumInSeason;
-		}			
-		void setAssistNumInCareer(int assistNumInCareer){
-			this->assistNumInCareer = assistNumInCareer;
-		}			
-		int getAssistNumInCareer(){
-			return this->assistNumInCareer;
-		}			
-		void setGoalsNumInCareer(int goalsNumInCareer){
-			this->goalsNumInCareer = goalsNumInCareer;
-		}			
-		int getGoalsNumInCareer(){
-			return this->goalsNumInCareer;
-		}			
-		
-		
+		}								
 		void setHeight(float height){
 			this->height = height;
 		}			
@@ -333,42 +280,23 @@ class Player:public Person
 		}			
 		float getWeight(){
 			return this->weight;
-		}			
-		void setSpeed(float speed){
-			this->speed = speed;
-		}			
-		float getSpeed(){
-			return this->speed;
-		}			
-		void setScoreAverage(float scoreAverage){
-			this->scoreAverage = scoreAverage;
-		}			
-		float getScoreAverage(){
-			return this->scoreAverage;		
-		}
+		}						
+	
 																				
-		Player()
-		{
-			numberOfShirt = 0;
-			height = 0;
-			weight = 0;	
-			speed = 0;
-			scoreAverage = 0;
-			injury = " ";
-			Appearance = 0;
-			numOfYellowCard = 0;
-			numOfRedCard = 0;
-			dutyInTeam = " ";
-			techniqueStat = 0;
-			escapePressing = " ";
-			passingBall = " ";
-			shootBall = " ";
-			header = " ";
-			assistNumInSeason = 0;
-			goalsNumInSeason = 0;
-			assistNumInCareer = 0;
-			goalsNumInCareer = 0;
-			specialGoals = " ";
+		Player() {
+		} 
+		Player(	string idMembers,string contractTerm,int idCardNumber,string fullName,int age,long long salary,int numberOfShirt,int Appearance,int numOfYellowCard,int numOfRedCard,int techniqueStat,int assistNumInSeason,int goalsNumInSeason,float height,float weight,string injury,string position) :Person(idMembers, contractTerm,idCardNumber, fullName, age, salary)
+		{	
+	     this->numberOfShirt=numberOfShirt ;
+	     this->Appearance=Appearance ;
+	     this->numOfYellowCard=numOfYellowCard ;
+	     this->numOfRedCard=numOfRedCard ;
+	     this->techniqueStat=techniqueStat;
+	     this->assistNumInSeason=assistNumInSeason ;
+	     this->goalsNumInSeason=goalsNumInSeason ;
+	     this->height=height;
+	     this->weight=weight ;
+	     this->injury=injury ;
 		}
 		void input()
 		{
@@ -380,10 +308,6 @@ class Player:public Person
 			cin>>height;
 			cout<<"Weight: ";
 			cin>>weight;
-			cout<<"Speed: ";
-			cin>>speed;
-			cout<<"The average of score(1-10): ";
-			cin>>scoreAverage;
 			cout<<"Injury: ";
 			cin.ignore();
 			getline(cin,injury);
@@ -393,31 +317,10 @@ class Player:public Person
 			cin>>numOfYellowCard;
 			cout<<"Number of Red Card: ";
 			cin>>numOfRedCard;
-			cout<<"The duty in Team: ";
-			cin.ignore();
-			getline(cin,dutyInTeam);
-			cout<<"The technique stat(1-4): ";
-			cin>>techniqueStat;
-			cout<<"The escapation of Pressing: ";
-			cin.ignore();
-			getline(cin,escapePressing);
-			cout<<"The passing Ball: ";
-			getline(cin,passingBall);
-			cout<<"The ability of shooting Ball: ";
-			getline(cin,shootBall);
-			cout<<"The header: ";
-			getline(cin,header);
 			cout<<"The number of assistance in Season: ";
 			cin>>assistNumInSeason;
 			cout<<"The number of goals in Season: ";
-			cin>>goalsNumInSeason;
-			cout<<"The number of assistance in Career: ";
-			cin>>assistNumInCareer;
-			cout<<"The number of goals in Career: ";
-			cin>>goalsNumInCareer;
-			cout<<"The special goals: ";
-			cin.ignore();
-			getline(cin,specialGoals);	
+			cin>>goalsNumInSeason;	
 			cout<<"Position: ";
 			getline(cin,position);		
 		}
@@ -426,14 +329,11 @@ class Player:public Person
 			cout<<"--------------------------------------------------"<<endl;
 			cout<<"                         OUTPUT THE PLAYER'S INFORMATION'"<<endl;
 			Person::output();
-			cout<<"Number of shirt: "<<numberOfShirt<<"  "<<"Height: "<<height<<"  "<<"Weight: "<<weight<<"  "<<"Speed: "<<speed<<endl;                
-			cout<<"The average of score: "<<scoreAverage<<"  "<<"Injury: "<<injury<<"  "<<"Appearance: "<<Appearance<<endl;
-			cout<<"Number of Yellow Card: "<<numOfYellowCard<<"  "<<"Number of Red Card: "<<numOfRedCard<<"  "<<"The duty in Team: "<<dutyInTeam<<endl;
-			cout<<"The technique stat: "<<techniqueStat<<"  "<<"The escapation of Pressing: "<<escapePressing<<"  "<<"The passing Ball: "<<passingBall<<endl;
-			cout<<"The ability of shooting Ball: "<<shootBall<<"  "<<"The header: "<<header<<"  "<<endl;
-			cout<<"The number of assistance in Season: "<<assistNumInSeason<<"  "<<"The number of goals in Season: "<<goalsNumInSeason<<endl;
-			cout<<"The number of assistance in Career: "<<assistNumInCareer<<"  "<<"The number of goals in Career: "<<goalsNumInCareer<<endl;
-			cout<<"The special goals: "<<specialGoals<<" "<<"Position: "<<position<<endl;		
+			cout<<"Number of shirt: "<<numberOfShirt<<"  "<<"Height: "<<height<<"  "<<"Weight: "<<weight<<endl;                
+			cout<<"Injury: "<<injury<<"  "<<"Appearance: "<<Appearance<<endl;
+			cout<<"Number of Yellow Card: "<<numOfYellowCard<<"  "<<"Number of Red Card: "<<numOfRedCard<<"  "<<endl;
+			cout<<"The technique stat: "<<techniqueStat<<endl;
+			cout<<"The number of assistance in Season: "<<assistNumInSeason<<"  "<<"The number of goals in Season: "<<goalsNumInSeason<<endl;		
 		}
 		void longOrShortTermRest()
 		{
@@ -510,9 +410,12 @@ class Goalkeeper:public Player
 	}
 	Goalkeeper()
 	{
-	this->reflexesAble="";
-	this->numOfKeptCleanSheet=0;
-	this->goalSaveRate=0;
+		
+	} 
+	Goalkeeper(string idMembers,string contractTerm,int idCardNumber,string fullName,int age,long long salary,int numberOfShirt,int Appearance,int numOfYellowCard,int numOfRedCard,int techniqueStat,int assistNumInSeason,int goalsNumInSeason,float height,float weight,string injury,string position,string escapeOffside,	string penaltyAble,	string combiWithOther,	int numOfGodenGoals):Player(idMembers,contractTerm,idCardNumber,fullName,age,salary,numberOfShirt,Appearance,numOfYellowCard,numOfRedCard,techniqueStat,assistNumInSeason,goalsNumInSeason,height,weight,injury,position) {
+		this->reflexesAble=reflexesAble;
+		this->numOfKeptCleanSheet=numOfKeptCleanSheet;
+		this->goalSaveRate=goalSaveRate ;
 	}
 	void input()
 	{
@@ -560,7 +463,7 @@ class Goalkeeper:public Player
 	}
 	bool signingCondition()
 	{
-		if(this->getAppearance()<5 ||this->getHeight()<1.8 ||this->getHeader()=="bad" ||this->getPassingBall()=="bad")
+		if(this->getAppearance()<5 ||this->getHeight()<1.8 )
 		{
 			return false;
 			cout<<"\nUnsatisfactory\n";
@@ -618,7 +521,7 @@ class listGoalkeeper:public Goalkeeper
  				v.push_back(degea);
 			 }
 			ofstream fo;
-			fo.open("D:\\test\\danh sach.txt");
+			fo.open("D:\\danh sach.txt");
 			if(fo.is_open()){
 				for(int i=0;i<v.size();i++){
 					fo<<i+1<<"/"<<endl;
@@ -635,7 +538,7 @@ class listGoalkeeper:public Goalkeeper
 		}
 	void search(){
 		ofstream fo;
-			fo.open("D:\\test\\danh sach_new.txt");
+			fo.open("D:\\danh sach_new.txt");
 			if(fo.is_open()){
 					cin.ignore();
 					cout<<"Enter the searchinfo:";
