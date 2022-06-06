@@ -34,10 +34,10 @@ class Defender:public Player
 	{
 		
 	} 
-	Defender(string idMembers,string contractTerm,int idCardNumber,string fullName,int age,long long salary,int numberOfShirt,int Appearance,int numOfYellowCard,int numOfRedCard,int techniqueStat,int assistNumInSeason,int goalsNumInSeason,float height,float weight,string injury,string position,string escapeOffside,	string penaltyAble,	string combiWithOther,	int numOfGodenGoals):Player(idMembers,contractTerm,idCardNumber,fullName,age,salary,numberOfShirt,Appearance,numOfYellowCard,numOfRedCard,techniqueStat,assistNumInSeason,goalsNumInSeason,height,weight,injury,position) {
+	Defender(string idMembers,string contractTerm,int idCardNumber,string fullName,int age,long long salary,int numberOfShirt,int Appearance,int numOfYellowCard,int numOfRedCard,int techniqueStat,int assistNumInSeason,int goalsNumInSeason,float height,float weight,string injury,string position,string tackleAbility,string defense1vs1,string offsideTrap):Player(idMembers,contractTerm,idCardNumber,fullName,age,salary,numberOfShirt,Appearance,numOfYellowCard,numOfRedCard,techniqueStat,assistNumInSeason,goalsNumInSeason,height,weight,injury,position) {
 		this->tackleAbility=tackleAbility;
 		this->defense1vs1=defense1vs1;
-		this->offsideTrap=this->offsideTrap ;
+		this->offsideTrap=offsideTrap ;
 	}
 	void input()
 	{
@@ -52,8 +52,9 @@ class Defender:public Player
 	void output()
 	{
 		Player::output();
-		cout<<"tackleAbility:"<<this->tackleAbility<<"  "<<"defense1vs1:"
-		<<this->defense1vs1<<"  "<<"offsideTrap:"<<this->offsideTrap<<endl;
+		cout<<"tackleAbility:"<<this->tackleAbility<<endl;
+		cout<<"defense1vs1:"<<this->defense1vs1<<endl;
+		cout<<"offsideTrap:"<<this->offsideTrap<<endl;
 	}
 	string mission()
 	{

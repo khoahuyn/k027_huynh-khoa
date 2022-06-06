@@ -43,7 +43,7 @@ class Midfielder:public Player
 	{
 		
 	} 
-	Midfielder(string idMembers,string contractTerm,int idCardNumber,string fullName,int age,long long salary,int numberOfShirt,int Appearance,int numOfYellowCard,int numOfRedCard,int techniqueStat,int assistNumInSeason,int goalsNumInSeason,float height,float weight,string injury,string position,string escapeOffside,	string penaltyAble,	string combiWithOther,	int numOfGodenGoals):Player(idMembers,contractTerm,idCardNumber,fullName,age,salary,numberOfShirt,Appearance,numOfYellowCard,numOfRedCard,techniqueStat,assistNumInSeason,goalsNumInSeason,height,weight,injury,position) {
+	Midfielder(string idMembers,string contractTerm,int idCardNumber,string fullName,int age,long long salary,int numberOfShirt,int Appearance,int numOfYellowCard,int numOfRedCard,int techniqueStat,int assistNumInSeason,int goalsNumInSeason,float height,float weight,string injury,string position,	string defenseSupport,string attackSupport,float distanceMove,string cornerKick):Player(idMembers,contractTerm,idCardNumber,fullName,age,salary,numberOfShirt,Appearance,numOfYellowCard,numOfRedCard,techniqueStat,assistNumInSeason,goalsNumInSeason,height,weight,injury,position) {
 		this->defenseSupport=defenseSupport;
 		this->attackSupport=attackSupport;
 		this->distanceMove=distanceMove ;
@@ -66,8 +66,10 @@ class Midfielder:public Player
 	void output()
 	{
 		Player::output();
-		cout<<"defenseSupport:"<<this->defenseSupport<<"  "<<"attackSupport:"
-		<<this->attackSupport<<"  "<<"distanceMove:"<<this->distanceMove<<"  "<<"cornerKick:"<<this->cornerKick<<endl;
+		cout<<"defenseSupport:"<<this->defenseSupport<<endl;
+		cout<<"attackSupport:"<<this->attackSupport<<endl;
+		cout<<"distanceMove:"<<this->distanceMove<<endl;
+		cout<<"cornerKick:"<<this->cornerKick<<endl;
 	}
 	string mission()
 	{

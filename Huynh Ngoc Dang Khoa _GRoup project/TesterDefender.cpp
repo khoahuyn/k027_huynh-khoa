@@ -411,10 +411,10 @@ class Defender:public Player
 	{
 		
 	} 
-	Defender(string idMembers,string contractTerm,int idCardNumber,string fullName,int age,long long salary,int numberOfShirt,int Appearance,int numOfYellowCard,int numOfRedCard,int techniqueStat,int assistNumInSeason,int goalsNumInSeason,float height,float weight,string injury,string position,string escapeOffside,	string penaltyAble,	string combiWithOther,	int numOfGodenGoals):Player(idMembers,contractTerm,idCardNumber,fullName,age,salary,numberOfShirt,Appearance,numOfYellowCard,numOfRedCard,techniqueStat,assistNumInSeason,goalsNumInSeason,height,weight,injury,position) {
+	Defender(string idMembers,string contractTerm,int idCardNumber,string fullName,int age,long long salary,int numberOfShirt,int Appearance,int numOfYellowCard,int numOfRedCard,int techniqueStat,int assistNumInSeason,int goalsNumInSeason,float height,float weight,string injury,string position,string tackleAbility,string defense1vs1,string offsideTrap):Player(idMembers,contractTerm,idCardNumber,fullName,age,salary,numberOfShirt,Appearance,numOfYellowCard,numOfRedCard,techniqueStat,assistNumInSeason,goalsNumInSeason,height,weight,injury,position) {
 		this->tackleAbility=tackleAbility;
 		this->defense1vs1=defense1vs1;
-		this->offsideTrap=this->offsideTrap ;
+		this->offsideTrap=offsideTrap ;
 	}
 	void input()
 	{
@@ -429,8 +429,9 @@ class Defender:public Player
 	void output()
 	{
 		Player::output();
-		cout<<"tackleAbility:"<<this->tackleAbility<<"  "<<"defense1vs1:"
-		<<this->defense1vs1<<"  "<<"offsideTrap:"<<this->offsideTrap<<endl;
+		cout<<"tackleAbility:"<<this->tackleAbility<<endl;
+		cout<<"defense1vs1:"<<this->defense1vs1<<endl;
+		cout<<"offsideTrap:"<<this->offsideTrap<<endl;
 	}
 	string mission()
 	{
@@ -576,9 +577,17 @@ class listDefender:public Defender
 	}	
 };
 int main(){
-	listDefender li;
-	li.inputlist();
-	cout<<endl<<"\t\t=====Enter the name of defender====="<<endl;
-	li.search();
+	Defender d1("RB001","31/08/2030",2,"Trent Alexander-Arnold",24,500000,66,10,1,2,4,12,5,175,64,"NO","RB","good","good","good");
+	Defender d2("LB001","17/10/2030",3,"Joao Cancelo",28,600000,17,12,2,0,4,17,10,182,72,"NO","LB","good","good","good");
+	Defender d3("RB002","22/04/2030",1,"Reece James",23,300000,12,5,1,0,3,10,5,182,82,"NO","RB","normal","normal","normal");
+	Defender d4("LB002","26/06/2030",0,"Kyle Walker",32,320000,25,6,5,1,3,9,4,178,83,"NO","LB","normal","normal","normal");
+	Defender d5("RB003","27/07/2030",1,"Luke Shaw",27,350000,2,7,2,0,2,12,6,185,75,"NO","RB","bad","bad","bad");
+	Defender d6("LB003","30/02/2030",1,"Daniel Carvajal",30,310000,11,6,1,0,2,2,7,173,73,"NO","LB","bad","bad","bad");
+	d1.output();
+	d2.output();
+	d3.output();
+	d4.output();
+	d5.output();
+	d6.output();
 	return 0;
 }

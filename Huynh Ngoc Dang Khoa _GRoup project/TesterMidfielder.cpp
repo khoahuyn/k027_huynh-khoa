@@ -421,7 +421,7 @@ class Midfielder:public Player
 	{
 		
 	} 
-	Midfielder(string idMembers,string contractTerm,int idCardNumber,string fullName,int age,long long salary,int numberOfShirt,int Appearance,int numOfYellowCard,int numOfRedCard,int techniqueStat,int assistNumInSeason,int goalsNumInSeason,float height,float weight,string injury,string position,string escapeOffside,	string penaltyAble,	string combiWithOther,	int numOfGodenGoals):Player(idMembers,contractTerm,idCardNumber,fullName,age,salary,numberOfShirt,Appearance,numOfYellowCard,numOfRedCard,techniqueStat,assistNumInSeason,goalsNumInSeason,height,weight,injury,position) {
+	Midfielder(string idMembers,string contractTerm,int idCardNumber,string fullName,int age,long long salary,int numberOfShirt,int Appearance,int numOfYellowCard,int numOfRedCard,int techniqueStat,int assistNumInSeason,int goalsNumInSeason,float height,float weight,string injury,string position,	string defenseSupport,string attackSupport,float distanceMove,string cornerKick):Player(idMembers,contractTerm,idCardNumber,fullName,age,salary,numberOfShirt,Appearance,numOfYellowCard,numOfRedCard,techniqueStat,assistNumInSeason,goalsNumInSeason,height,weight,injury,position) {
 		this->defenseSupport=defenseSupport;
 		this->attackSupport=attackSupport;
 		this->distanceMove=distanceMove ;
@@ -444,8 +444,10 @@ class Midfielder:public Player
 	void output()
 	{
 		Player::output();
-		cout<<"defenseSupport:"<<this->defenseSupport<<"  "<<"attackSupport:"
-		<<this->attackSupport<<"  "<<"distanceMove:"<<this->distanceMove<<"  "<<"cornerKick:"<<this->cornerKick<<endl;
+		cout<<"defenseSupport:"<<this->defenseSupport<<endl;
+		cout<<"attackSupport:"<<this->attackSupport<<endl;
+		cout<<"distanceMove:"<<this->distanceMove<<endl;
+		cout<<"cornerKick:"<<this->cornerKick<<endl;
 	}
 	string mission()
 	{
@@ -525,7 +527,6 @@ class Midfielder:public Player
 };
 
 
-
 class listMidfielder:public Midfielder
 {
 	public:
@@ -586,9 +587,23 @@ class listMidfielder:public Midfielder
 	}	
 };
 int main(){
-	listMidfielder li;
-	li.inputlist();
-	cout<<endl<<"\t\t=====Enter the name of Midfielder====="<<endl;
-	li.search();
+	Midfielder m1("CAM001","31/08/2030",2,"Kevin De Bruyne",31,500000,66,10,1,2,4,12,5,181,68,"NO","CAM","good","good",100,"good");
+	Midfielder m2("CM001","17/10/2030",3,"Luka Modric",37,600000,17,12,2,0,4,17,10,174,66,"NO","CM","good","good",90,"good");
+	Midfielder m3("CDM001","22/04/2030",1,"Thiago Alcantara",31,300000,12,5,1,0,3,10,5,174,70,"NO","CDM","good","good",110,"good");
+	Midfielder m4("CAM002","26/06/2030",0,"Bruno Fernandes",28,320000,25,6,5,1,3,9,4,179,64,"NO","CAM","normal","normal",80,"normal");
+	Midfielder m5("CM002","27/07/2030",1,"N\'Golo Kante",31,350000,2,7,2,0,2,12,6,168,68,"NO","CM","normal","normal",70,"normal");
+	Midfielder m6("CDM002","30/02/2030",1,"Casemiro",30,310000,11,6,1,0,2,2,7,185,84,"NO","CDM","normal","normal",90,"normal");
+	Midfielder m7("CAM003","31/12/2030",5,"Jorginho ",31,220000,21,7,4,0,2,5,3,180,65,"NO","CAM","bad","bad",60,"bad");
+	Midfielder m8("CM003","25/02/2030",2,"Bernardo Silva",28,150000,80,6,5,1,3,0,4,173,64,"NO","CM","bad","bad",50,"bad");
+	Midfielder m9("CDM003","05/01/2030",3,"Paul Pogba",29,200000,77,7,0,2,1,3,8,191,84,"NO","CDM","bad","bad",75,"bad");
+	m1.output();
+	m2.output();
+	m3.output();
+	m4.output();
+	m5.output();
+	m6.output();
+	m7.output();
+	m8.output();
+	m9.output();
 	return 0;
 }

@@ -412,7 +412,7 @@ class Goalkeeper:public Player
 	{
 		
 	} 
-	Goalkeeper(string idMembers,string contractTerm,int idCardNumber,string fullName,int age,long long salary,int numberOfShirt,int Appearance,int numOfYellowCard,int numOfRedCard,int techniqueStat,int assistNumInSeason,int goalsNumInSeason,float height,float weight,string injury,string position,string escapeOffside,	string penaltyAble,	string combiWithOther,	int numOfGodenGoals):Player(idMembers,contractTerm,idCardNumber,fullName,age,salary,numberOfShirt,Appearance,numOfYellowCard,numOfRedCard,techniqueStat,assistNumInSeason,goalsNumInSeason,height,weight,injury,position) {
+	Goalkeeper(string idMembers,string contractTerm,int idCardNumber,string fullName,int age,long long salary,int numberOfShirt,int Appearance,int numOfYellowCard,int numOfRedCard,int techniqueStat,int assistNumInSeason,int goalsNumInSeason,float height,float weight,string injury,string position,	string reflexesAble,int numOfKeptCleanSheet,int goalSaveRate):Player(idMembers,contractTerm,idCardNumber,fullName,age,salary,numberOfShirt,Appearance,numOfYellowCard,numOfRedCard,techniqueStat,assistNumInSeason,goalsNumInSeason,height,weight,injury,position) {
 		this->reflexesAble=reflexesAble;
 		this->numOfKeptCleanSheet=numOfKeptCleanSheet;
 		this->goalSaveRate=goalSaveRate ;
@@ -430,8 +430,9 @@ class Goalkeeper:public Player
 	void output()
 	{
 		Player::output();
-		cout<<"reflexesAble:"<<this->reflexesAble<<"  "<<"numOfKeptCleanSheet:"
-		<<this->numOfKeptCleanSheet<<"  "<<"goalSaveRate:"<<this->goalSaveRate<<endl;
+		cout<<"reflexesAble:"<<this->reflexesAble<<endl;
+		cout<<"numOfKeptCleanSheet:"<<this->numOfKeptCleanSheet<<endl;
+		cout<<"goalSaveRate:"<<this->goalSaveRate<<endl;
 	}
 	string mission()
 	{
@@ -505,6 +506,7 @@ class Goalkeeper:public Player
 
 
 
+
 class listGoalkeeper:public Goalkeeper
 {
 	public:
@@ -566,9 +568,11 @@ class listGoalkeeper:public Goalkeeper
 	}	
 };
 int main(){
-	listGoalkeeper li;
-	li.inputlist();
-	cout<<endl<<"\t\t=====Enter the name of Goalkeeper====="<<endl;
-	li.search();
+	Goalkeeper g1("GK001","31/08/2030",2,"Thibaut Courtois",30,600000,66,10,1,2,4,12,5,199,91,"NO","GK","good",19,80);
+	Goalkeeper g2("GK002","17/10/2030",3,"Alisson Becker",30,400000,17,12,2,0,4,17,10,193,91,"NO","GK","normal",8,50);
+	Goalkeeper g3("GK003","22/04/2030",1,"David De Gea ",32,250000,12,5,1,0,3,10,5,192,76,"NO","GK","bad",4,30);
+	g1.output();
+	g2.output();
+	g3.output();
 	return 0;
 }

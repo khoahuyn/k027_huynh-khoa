@@ -34,7 +34,7 @@ class Goalkeeper:public Player
 	{
 		
 	} 
-	Goalkeeper(string idMembers,string contractTerm,int idCardNumber,string fullName,int age,long long salary,int numberOfShirt,int Appearance,int numOfYellowCard,int numOfRedCard,int techniqueStat,int assistNumInSeason,int goalsNumInSeason,float height,float weight,string injury,string position,string escapeOffside,	string penaltyAble,	string combiWithOther,	int numOfGodenGoals):Player(idMembers,contractTerm,idCardNumber,fullName,age,salary,numberOfShirt,Appearance,numOfYellowCard,numOfRedCard,techniqueStat,assistNumInSeason,goalsNumInSeason,height,weight,injury,position) {
+	Goalkeeper(string idMembers,string contractTerm,int idCardNumber,string fullName,int age,long long salary,int numberOfShirt,int Appearance,int numOfYellowCard,int numOfRedCard,int techniqueStat,int assistNumInSeason,int goalsNumInSeason,float height,float weight,string injury,string position,	string reflexesAble,int numOfKeptCleanSheet,int goalSaveRate):Player(idMembers,contractTerm,idCardNumber,fullName,age,salary,numberOfShirt,Appearance,numOfYellowCard,numOfRedCard,techniqueStat,assistNumInSeason,goalsNumInSeason,height,weight,injury,position) {
 		this->reflexesAble=reflexesAble;
 		this->numOfKeptCleanSheet=numOfKeptCleanSheet;
 		this->goalSaveRate=goalSaveRate ;
@@ -52,8 +52,9 @@ class Goalkeeper:public Player
 	void output()
 	{
 		Player::output();
-		cout<<"reflexesAble:"<<this->reflexesAble<<"  "<<"numOfKeptCleanSheet:"
-		<<this->numOfKeptCleanSheet<<"  "<<"goalSaveRate:"<<this->goalSaveRate<<endl;
+		cout<<"reflexesAble:"<<this->reflexesAble<<endl;
+		cout<<"numOfKeptCleanSheet:"<<this->numOfKeptCleanSheet<<endl;
+		cout<<"goalSaveRate:"<<this->goalSaveRate<<endl;
 	}
 	string mission()
 	{

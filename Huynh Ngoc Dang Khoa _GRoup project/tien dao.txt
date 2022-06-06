@@ -1,0 +1,6 @@
+	Forward f1("LW001","31/08/2030",2,"Cristiano Ronaldo",37,900000,66,10,1,2,4,12,5,189,85,"NO","LW","good","good","good",10);
+	Forward f2("RW001","17/10/2030",3,"Diogo Jota",25,500000,17,12,2,0,4,17,10,178,70,"NO","RW","normal","normal","normal",7);
+	Forward f3("CF001","22/04/2030",1,"Marcus Rashford",24,300000,12,5,1,0,3,10,5,180,70,"NO","CS","bad","bad","bad",5);
+	f1.output();
+	f2.output();
+	f3.output();
