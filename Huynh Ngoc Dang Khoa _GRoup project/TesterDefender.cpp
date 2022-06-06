@@ -577,12 +577,12 @@ class listDefender:public Defender
 	}	
 };
 int main(){
-	Defender d1("RB001","31/08/2030",2,"Trent Alexander-Arnold",24,500000,66,10,1,2,4,12,5,175,64,"NO","RB","good","good","good");
-	Defender d2("LB001","17/10/2030",3,"Joao Cancelo",28,600000,17,12,2,0,4,17,10,182,72,"NO","LB","good","good","good");
-	Defender d3("RB002","22/04/2030",1,"Reece James",23,300000,12,5,1,0,3,10,5,182,82,"NO","RB","normal","normal","normal");
-	Defender d4("LB002","26/06/2030",0,"Kyle Walker",32,320000,25,6,5,1,3,9,4,178,83,"NO","LB","normal","normal","normal");
-	Defender d5("RB003","27/07/2030",1,"Luke Shaw",27,350000,2,7,2,0,2,12,6,185,75,"NO","RB","bad","bad","bad");
-	Defender d6("LB003","30/02/2030",1,"Daniel Carvajal",30,310000,11,6,1,0,2,2,7,173,73,"NO","LB","bad","bad","bad");
+	Defender d1("RB001","24/04/2029",122333,"Trent Alexander-Arnold",24,3000000,22,6,2,0,3,3,1,175,64,"NO","RB","good","good","normal");
+	Defender d2("LB001","10/02/2028",122555,"Joao Cancelo",28,3500000,18,5,2,0,3,2,1,182,72,"NO","LB","good","bad","good");
+	Defender d3("LCB001","11/07/2031",122666,"Sergio Ramos",31,7000000,4,18,10,3,4,3,5,182,82,"NO","LCB","good","good","good");
+	Defender d4("RCB001","26/06/2022",122888,"Raphaël Varane",29,5500000,10,15,4,1,4,7,2,178,83,"NO","RCB","good","good","normal");
+	Defender d5("RB002","18/09/2027",122444,"Luke Shaw",27,3700000,30,4,2,1,2,0,1,185,75,"NO","RB","bad","normal","good");
+	Defender d6("LB002","20/03/2025",122999,"Daniel Carvajal",30,4200000,16,2,1,0,2,1,0,173,73,"NO","LB","normal","bad","good");
 	d1.output();
 	d2.output();
 	d3.output();

@@ -568,9 +568,9 @@ class listGoalkeeper:public Goalkeeper
 	}	
 };
 int main(){
-	Goalkeeper g1("GK001","31/08/2030",2,"Thibaut Courtois",30,600000,66,10,1,2,4,12,5,199,91,"NO","GK","good",19,80);
-	Goalkeeper g2("GK002","17/10/2030",3,"Alisson Becker",30,400000,17,12,2,0,4,17,10,193,91,"NO","GK","normal",8,50);
-	Goalkeeper g3("GK003","22/04/2030",1,"David De Gea ",32,250000,12,5,1,0,3,10,5,192,76,"NO","GK","bad",4,30);
+	Goalkeeper g1("GK001","31/08/2030",111222,"Thibaut Courtois",30,4000000,1,19,3,0,4,2,1,199,91,"NO","GK","good",15,80);
+	Goalkeeper g2("GK002","17/10/2031",111333,"Alisson Becker",30,2000000,17,5,1,0,2,1,0,193,91,"NO","GK","normal",3,60);
+	Goalkeeper g3("GK003","22/04/2032",111444,"David De Gea ",32,1500000,23,1,0,0,1,0,0,192,76,"NO","GK","bad",0,0);
 	g1.output();
 	g2.output();
 	g3.output();

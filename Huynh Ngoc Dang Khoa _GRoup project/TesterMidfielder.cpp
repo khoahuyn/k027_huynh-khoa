@@ -587,15 +587,15 @@ class listMidfielder:public Midfielder
 	}	
 };
 int main(){
-	Midfielder m1("CAM001","31/08/2030",2,"Kevin De Bruyne",31,500000,66,10,1,2,4,12,5,181,68,"NO","CAM","good","good",100,"good");
-	Midfielder m2("CM001","17/10/2030",3,"Luka Modric",37,600000,17,12,2,0,4,17,10,174,66,"NO","CM","good","good",90,"good");
-	Midfielder m3("CDM001","22/04/2030",1,"Thiago Alcantara",31,300000,12,5,1,0,3,10,5,174,70,"NO","CDM","good","good",110,"good");
-	Midfielder m4("CAM002","26/06/2030",0,"Bruno Fernandes",28,320000,25,6,5,1,3,9,4,179,64,"NO","CAM","normal","normal",80,"normal");
-	Midfielder m5("CM002","27/07/2030",1,"N\'Golo Kante",31,350000,2,7,2,0,2,12,6,168,68,"NO","CM","normal","normal",70,"normal");
-	Midfielder m6("CDM002","30/02/2030",1,"Casemiro",30,310000,11,6,1,0,2,2,7,185,84,"NO","CDM","normal","normal",90,"normal");
-	Midfielder m7("CAM003","31/12/2030",5,"Jorginho ",31,220000,21,7,4,0,2,5,3,180,65,"NO","CAM","bad","bad",60,"bad");
-	Midfielder m8("CM003","25/02/2030",2,"Bernardo Silva",28,150000,80,6,5,1,3,0,4,173,64,"NO","CM","bad","bad",50,"bad");
-	Midfielder m9("CDM003","05/01/2030",3,"Paul Pogba",29,200000,77,7,0,2,1,3,8,191,84,"NO","CDM","bad","bad",75,"bad");
+	Midfielder m1("CAM001","29/09/2031",222333,"Kevin De Bruyne",31,9000000,11,21,2,0,4,10,12,181,68,"NO","CAM","good","good",7000,"good");
+	Midfielder m2("CM001","10/10/2026",222444,"Luka Modric",37,9500000,9,15,4,0,4,17,5,174,66,"NO","CM","good","good",8500,"good");
+	Midfielder m3("RCM001","21/10/2026",222555,"Thiago Alcantara",31,8000000,12,5,3,0,3,2,1,174,70,"NO","RCM","good","good",5000,"good");
+	Midfielder m4("LCM001","30/01/2024",222666,"Bruno Fernandes",28,7000000,25,4,0,0,3,5,1,179,64,"NO","CAM","normal","normal",6000,"normal");
+	Midfielder m5("CDM001","11/05/2027",222888,"N\'Golo Kante",31,6500000,2,22,10,1,4,7,2,168,68,"NO","CDM","normal","normal",10000,"normal");
+	Midfielder m6("CDM002","19/08/2023",222999,"Casemiro",30,5500000,13,3,1,1,3,2,1,185,84,"NO","CDM","normal","normal",9000,"normal");
+	Midfielder m7("RM001","31/12/2032",222000,"Jorginho ",31,7300000,21,0,0,0,2,0,0,180,65,"NO","CAM","bad","bad",4000,"bad");
+	Midfielder m8("LM001","25/05/2027",222777,"Bernardo Silva",28,4500000,32,3,1,0,2,0,3,173,64,"NO","CM","bad","bad",4500,"bad");
+	Midfielder m9("CM002","06/01/2029",222111,"Paul Pogba",29,3000000,29,2,0,1,1,1,0,191,84,"NO","CDM","bad","bad",7300,"bad");
 	m1.output();
 	m2.output();
 	m3.output();
